@@ -9,9 +9,9 @@ public class LumberjackController : MonoBehaviour {
     public int centerRange;
 
     private Vector2 dir;
-    private float stamina;
+    public float stamina;
 
-    private bool isCarryingWood;
+    private bool Reverse;
     private bool hit;
     private bool isAttacking = false;
 
@@ -21,7 +21,7 @@ public class LumberjackController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //InitializeDir();
-        isCarryingWood = false;
+        Reverse = false;
         stamina = 100;
         SetRandomPosition();
         treeLayer = LayerMask.GetMask("Tree");
@@ -38,6 +38,7 @@ public class LumberjackController : MonoBehaviour {
 
     private void FindTree()
     {
+        
         if (!isAttacking)
         {
             if (hit)
@@ -50,6 +51,10 @@ public class LumberjackController : MonoBehaviour {
                 hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer);
             }
         }
+        else
+        {
+            Invoke("Attack", 0.5f);
+        }
     }
 
     private void SetRandomPosition()
@@ -57,17 +62,17 @@ public class LumberjackController : MonoBehaviour {
         switch (startDir)
         {
             case 1:
-                transform.SetPositionAndRotation(new Vector3(Random.Range(-11, 16), 13.41712f, 0), Quaternion.identity);
+                transform.SetPositionAndRotation(new Vector3(Random.Range(-11, 16), 13f, 0), Quaternion.identity);
                 break;
 
             case 2:
-                transform.SetPositionAndRotation(new Vector3(16.53524f, Random.Range(-13, 13), 0), Quaternion.identity);
+                transform.SetPositionAndRotation(new Vector3(13f, Random.Range(-13, 13), 0), Quaternion.identity);
                 break;
             case 3:
-                transform.SetPositionAndRotation(new Vector3(Random.Range(-11, 16), -12.58288f, 0), Quaternion.identity);
+                transform.SetPositionAndRotation(new Vector3(Random.Range(-11, 16), -13f, 0), Quaternion.identity);
                 break;
             case 4:
-                transform.SetPositionAndRotation(new Vector3(-13.46476f, Random.Range(-13, 13), 0), Quaternion.identity);
+                transform.SetPositionAndRotation(new Vector3(-13f, Random.Range(-13, 13), 0), Quaternion.identity);
                 break;
         }
         
@@ -111,25 +116,56 @@ public class LumberjackController : MonoBehaviour {
         SetRandomPosition();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
 
-        if (collision.transform.tag == "Tree" && stamina != 0)
+        /* if (collision.transform.tag == "Tree" && stamina != 0)
+         {
+             Debug.Log("COLLIDE");
+             isAttacking = true;
+             Invoke("Attack", 0.5f);
+         }
+         else if (stamina <= 0)
+         {
+             isCarryingWood = true;
+         }
+
+         if (collision.transform.tag == "Spawner")
+         {
+             stamina = 100;
+             isCarryingWood = false;
+         }
+         */
+       
+        if (collision.transform.tag == "Tree")
         {
-            Debug.Log("COLLIDE");
-            isAttacking = true;
-            Invoke("Attack", 0.5f);
-            dir *= 0;
-        }
-        else if (stamina <= 0)
-        {
-            isCarryingWood = true;
+            if (stamina <= 0)
+            {
+                Reverse = true;
+                isAttacking = false;
+            }
         }
 
         if (collision.transform.tag == "Spawner")
         {
             stamina = 100;
-            isCarryingWood = false;
+            Reverse = true;
+        }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Tree" )
+        {
+            Debug.Log("COLLIDE");
+            isAttacking = true;
+        }
+
+        if (collision.transform.tag == "Spawner")
+        {
+            stamina = 100;
+            Reverse = true;
         }
     }
 
@@ -138,17 +174,15 @@ public class LumberjackController : MonoBehaviour {
     {
         stamina -= 10;
         Debug.Log("Strike");
+        CancelInvoke();
     }
 
     private void DirChange()
     {
-        if(isCarryingWood)
+        if(Reverse)
         {
             dir *= -1;
-        }
-        else if(!isCarryingWood)
-        {
-            dir *= 1;
+            Reverse = false;
         }
     }
 }
