@@ -14,6 +14,7 @@ public class LumberjackController : MonoBehaviour {
     private bool Reverse;
     private bool hit;
     private bool isAttacking = false;
+    private bool isCarryingWood;
 
     private int startDir;
     private int treeLayer;
@@ -21,6 +22,7 @@ public class LumberjackController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //InitializeDir();
+        isCarryingWood = false;
         Reverse = false;
         stamina = 100;
         SetRandomPosition();
@@ -44,6 +46,10 @@ public class LumberjackController : MonoBehaviour {
             if (hit)
             {
                 Move(); 
+            }
+            else if(isCarryingWood)
+            {
+                Move();
             }
             else
             {
@@ -143,6 +149,7 @@ public class LumberjackController : MonoBehaviour {
             {
                 Reverse = true;
                 isAttacking = false;
+                isCarryingWood = true;
             }
         }
 
