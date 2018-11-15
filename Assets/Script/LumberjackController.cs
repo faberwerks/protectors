@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class LumberjackController : MonoBehaviour {
 
-    public GameObject SpawnerTop, SpawnerBottom, SpawnerRight, SpawnerLeft;
-    public int edgeX,edgeY,edgeMinX,edgeMinY;
-    public int centerRange;
+    public GameObject spawnerTop, spawnerBottom, spawnerRight, spawnerLeft;
+    public GameObject attackedTree;
 
     private Vector2 dir;
+
+    public int edgeX,edgeY,edgeMinX,edgeMinY;
+    public int centerRange;
+    private int startDir;
+    private int treeLayer;
+
     public float stamina;
+    public float damage;
 
     private bool Reverse;
     private bool hit;
     private bool isAttacking = false;
     private bool isCarryingWood;
-
-    private int startDir;
-    private int treeLayer;
 
     // Use this for initialization
     void Start () {
@@ -25,13 +28,11 @@ public class LumberjackController : MonoBehaviour {
         isCarryingWood = false;
         Reverse = false;
         stamina = 100;
+        damage = 5f;
         SetRandomPosition();
-        treeLayer = LayerMask.GetMask("Tree");
-        
+        treeLayer = LayerMask.GetMask("Tree");    
     }
-	
      
-
 	// Update is called once per frame
 	void Update () {
         DirChange();
@@ -47,9 +48,10 @@ public class LumberjackController : MonoBehaviour {
             {
                 Move(); 
             }
-            else if(isCarryingWood)
+            else if (isCarryingWood)
             {
                 Move();
+                Debug.Log("MOVE");
             }
             else
             {
@@ -88,31 +90,6 @@ public class LumberjackController : MonoBehaviour {
     {
         transform.Translate(dir * Time.deltaTime);
     }
-    
-    //private void InitializeDir()
-    //{
-    //    if (SpawnerTop.transform.position.y > edgeY)
-    //    {
-    //        startDir = 1;
-    //        dir = new Vector2(0, -1);
-    //    }
-    //    else if (SpawnerRight.transform.position.x > edgeX)
-    //    {
-    //        startDir = 2;
-    //        dir = new Vector2(-1, 0);
-    //    }
-    //    else if (SpawnerBottom.transform.position.y > edgeMinY)
-    //    {
-    //        startDir = 3;
-    //        dir = new Vector2(0, 1);
-    //    }
-    //    else if (SpawnerLeft.transform.position.x > edgeMinX)
-    //    {
-    //        startDir = 4;
-    //        dir = new Vector2(1, 0);
-    //    }    
-    //}
-
 
     //Sets an initial 
      public void InitialiseDir(Vector2 dir/*Speed according to direction*/, int startDir /*Origin Position*/)
@@ -122,50 +99,12 @@ public class LumberjackController : MonoBehaviour {
         SetRandomPosition();
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-
-        /* if (collision.transform.tag == "Tree" && stamina != 0)
-         {
-             Debug.Log("COLLIDE");
-             isAttacking = true;
-             Invoke("Attack", 0.5f);
-         }
-         else if (stamina <= 0)
-         {
-             isCarryingWood = true;
-         }
-
-         if (collision.transform.tag == "Spawner")
-         {
-             stamina = 100;
-             isCarryingWood = false;
-         }
-         */
-       
-        if (collision.transform.tag == "Tree")
-        {
-            if (stamina <= 0)
-            {
-                Reverse = true;
-                isAttacking = false;
-                isCarryingWood = true;
-            }
-        }
-
-        if (collision.transform.tag == "Spawner")
-        {
-            stamina = 100;
-            Reverse = true;
-        }
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Tree" )
         {
-            Debug.Log("COLLIDE");
+            Debug.Log("ENTERED COLLIISION");
+            attackedTree = (GameObject) collision.gameObject;
             isAttacking = true;
         }
 
@@ -179,9 +118,22 @@ public class LumberjackController : MonoBehaviour {
 
     private void Attack()
     {
-        stamina -= 10;
-        Debug.Log("Strike");
-        CancelInvoke();
+        if (stamina > 0)
+        {
+            stamina -= 10;
+            Debug.Log("Strike");
+            attackedTree.GetComponent<Tree>().health -= damage;
+            CancelInvoke();
+        }
+
+        else if (stamina <= 0)
+        {
+            Reverse = true;
+            isAttacking = false;
+            isCarryingWood = true;
+            Debug.Log("Collide with tree");
+        }
+
     }
 
     private void DirChange()
