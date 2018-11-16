@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
 
@@ -11,8 +13,13 @@ public class GameManager : MonoBehaviour {
 
     public static float seed;
     public static float score = 0f;
+    [SerializeField] private float spawnTime;
+    [SerializeField] private float spawnTimer;
 
     private int checker;
+
+    public Text scoreText;
+    public Text seedText;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -34,18 +41,49 @@ public class GameManager : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
+        //debugging purpose
+        spawnTime = 5f;
+        spawnTimer = spawnTime;
         seed = 30f;
+        UpdateScore();
+        UpdateSeed();
     }
 
     // Update is called once per frame
-    void Update() {
-        Invoke("Spawn", 2f);
+    void Update()
+    {
+        Spawn();
+        UpdateScore();
+        UpdateSeed();
     }
-   
+
+    public void AddScore(float newScore)
+    {
+        score += newScore;
+        UpdateScore();
+    }
+
+    private void UpdateScore()
+    {
+        scoreText.text = "Score: " + score;
+    }
+
+    public void AddSeed(float newSeed)
+    {
+        seed += newSeed;
+        UpdateSeed();
+    }
+
+    private void UpdateSeed()
+    {
+        seedText.text = "Seed: " + seed;
+    }
+
     private void SpawnLumberjack(int startLoc)
     {
-        Vector2 dir = new Vector2(0,0);
+        Vector2 dir = new Vector2(0, 0);
         switch (startLoc)
         {
             case 1:
@@ -65,11 +103,19 @@ public class GameManager : MonoBehaviour {
         newLumberJack.GetComponent<LumberjackController>().InitialiseDir(dir, startLoc);
     }
 
+
     //Spawns a lumberjack at a set position
     private void Spawn()
     {
-        checker = Random.Range(1, 5); //Determines which position the lumberjack is spawned in
-        SpawnLumberjack(checker);
-        CancelInvoke();
+        if (spawnTimer <= 0)
+        {
+            checker = Random.Range(1, 5); //Determines which position the lumberjack is spawned in
+            SpawnLumberjack(checker);
+            spawnTimer = spawnTime;
+        }
+        else
+        {
+            spawnTimer -= Time.deltaTime;
+        }
     }
 }

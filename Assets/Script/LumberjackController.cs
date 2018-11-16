@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LumberjackController : MonoBehaviour {
-
-    public GameObject spawnerTop, spawnerBottom, spawnerRight, spawnerLeft;
+    
     public GameObject attackedTree;
 
-    private Vector2 dir;
+    [SerializeField] private Vector2 dir;
 
-    public int edgeX,edgeY,edgeMinX,edgeMinY;
-    public int centerRange;
     private int startDir;
     private int treeLayer;
 
     public float stamina;
     public float damage;
+    private float searchCooldownTime;
+    private float searchCooldownTimer;
 
-    private bool Reverse;
     private bool hit;
     private bool isAttacking = false;
     private bool isCarryingWood;
@@ -25,8 +23,9 @@ public class LumberjackController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //InitializeDir();
+        searchCooldownTime = 2f;
+        searchCooldownTimer = searchCooldownTime;
         isCarryingWood = false;
-        Reverse = false;
         stamina = 100;
         damage = 5f;
         SetRandomPosition();
@@ -35,33 +34,41 @@ public class LumberjackController : MonoBehaviour {
      
 	// Update is called once per frame
 	void Update () {
-        DirChange();
         FindTree();
+        ChangeColour();
     }
 
     private void FindTree()
     {
-        
-        if (!isAttacking)
+        if (searchCooldownTimer <= 0)
         {
-            if (hit)
+            if (!isAttacking)
             {
-                Move(); 
-            }
-            else if (isCarryingWood)
-            {
-                Move();
-                Debug.Log("MOVE");
+                if (!isCarryingWood)
+                {
+                    hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer);
+                    if (hit)
+                    {
+                        Move();
+                    }
+                    else 
+                    {
+                        SetRandomPosition();
+                    }
+                }
+                else
+                {
+                    Move();
+                }
             }
             else
             {
-                SetRandomPosition();
-                hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer);
+                Invoke("Attack", 0.5f);
             }
         }
         else
         {
-            Invoke("Attack", 0.5f);
+            searchCooldownTimer -= Time.deltaTime;
         }
     }
 
@@ -70,17 +77,17 @@ public class LumberjackController : MonoBehaviour {
         switch (startDir)
         {
             case 1:
-                transform.SetPositionAndRotation(new Vector3(Random.Range(-11, 16), 13f, 0), Quaternion.identity);
+                transform.SetPositionAndRotation(new Vector3(Random.Range(-11f, 14f), 13f, 0), Quaternion.identity);
                 break;
 
             case 2:
-                transform.SetPositionAndRotation(new Vector3(13f, Random.Range(-13, 13), 0), Quaternion.identity);
+                transform.SetPositionAndRotation(new Vector3(14f, Random.Range(-13f, 13f), 0), Quaternion.identity);
                 break;
             case 3:
-                transform.SetPositionAndRotation(new Vector3(Random.Range(-11, 16), -13f, 0), Quaternion.identity);
+                transform.SetPositionAndRotation(new Vector3(Random.Range(-11f, 14f), -13f, 0), Quaternion.identity);
                 break;
             case 4:
-                transform.SetPositionAndRotation(new Vector3(-13f, Random.Range(-13, 13), 0), Quaternion.identity);
+                transform.SetPositionAndRotation(new Vector3(-13f, Random.Range(-13f, 13f), 0), Quaternion.identity);
                 break;
         }
         
@@ -103,15 +110,19 @@ public class LumberjackController : MonoBehaviour {
     {
         if (collision.transform.tag == "Tree" )
         {
-            Debug.Log("ENTERED COLLIISION");
             attackedTree = (GameObject) collision.gameObject;
             isAttacking = true;
         }
 
         if (collision.transform.tag == "Spawner")
         {
+            Debug.Log("Collide With Spawner . Change Direction");
             stamina = 100;
-            Reverse = true;
+            dir *= -1;
+            isCarryingWood = false;
+            SetRandomPosition();
+            hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer);
+            searchCooldownTimer = searchCooldownTime;
         }
     }
 
@@ -121,27 +132,32 @@ public class LumberjackController : MonoBehaviour {
         if (stamina > 0)
         {
             stamina -= 10;
-            Debug.Log("Strike");
             attackedTree.GetComponent<Tree>().health -= damage;
             CancelInvoke();
         }
 
         else if (stamina <= 0)
         {
-            Reverse = true;
+            Debug.Log("Stamina Abis . Change Direction");
+            hit = false;
+            dir *= -1;
             isAttacking = false;
             isCarryingWood = true;
-            Debug.Log("Collide with tree");
+            CancelInvoke();
         }
 
     }
 
-    private void DirChange()
+    private void ChangeColour()
     {
-        if(Reverse)
+        if (isCarryingWood)
         {
-            dir *= -1;
-            Reverse = false;
+            GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
         }
+        else
+        {
+            GetComponent<Renderer>().material.SetColor("_Color", Color.grey);
+        }
+
     }
 }

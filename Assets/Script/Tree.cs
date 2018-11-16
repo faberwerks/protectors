@@ -23,7 +23,7 @@ public class Tree : MonoBehaviour {
 	void Start () {
         type = TreeType.FRUIT;
 
-        health = 100f;
+        health = 1000000f;
         seedValue = 10f;
         scoreValue = 100f;
         harvestTime = 5f;
@@ -76,8 +76,10 @@ public class Tree : MonoBehaviour {
         if (harvestable)
         {
             //access gamemanager to set seed and score
-            GameManager.score += 100;
-            GameManager.seed += 10;
+           
+            GameManager.score += scoreValue;
+            GameManager.seed += seedValue;
+
             GetComponent<Renderer>().material.SetColor("_Color", Color.green);
             Debug.Log("Score: " + GameManager.score);
             Debug.Log("Seed: " + GameManager.seed);
