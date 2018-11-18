@@ -26,6 +26,7 @@ public class SpawnTree : MonoBehaviour
 
         point = Input.mousePosition;
         targetPoint = Camera.main.ScreenToWorldPoint(new Vector3(point.x, point.y, distance));
+        //prefab.position = targetPoint;
         if (Input.GetMouseButtonDown(0) && select)
         {
             Instantiate(prefab, targetPoint, Quaternion.identity);
@@ -39,6 +40,11 @@ public class SpawnTree : MonoBehaviour
             //    Instantiate(prefab, Point, Quaternion.identity);
             //}
         }
+
+        if(select)
+            toggle.GetComponent<Image>().color = Color.red;
+        else
+            toggle.GetComponent<Image>().color = Color.white;
     }
 
     void ChangeSelect()
@@ -46,14 +52,10 @@ public class SpawnTree : MonoBehaviour
         if (!select)
         {
             select = true;
-            while(select)
-                GetComponent<Image>().color = Color.red;
         }
         else
         {
             select = false;
-            while(!select)
-                GetComponent<Image>().color = Color.white;
         }
     }
 }
