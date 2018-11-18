@@ -5,22 +5,30 @@ using UnityEngine.UI;
 
 public class SpawnTree : MonoBehaviour
 {
+    public Button toggle;
 
     public bool select = false;
 
-    public GameObject Prefab;
+    public Transform prefab;
     
-    public int RayDistance = 10;
-    private Vector3 Point;
+    public float distance = 10f;
+
+    private Vector3 point, targetPoint;
+
+    public void Start()
+    {
+
+    }
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        toggle.onClick.AddListener(ChangeSelect);
+
+        point = Input.mousePosition;
+        targetPoint = Camera.main.ScreenToWorldPoint(new Vector3(point.x, point.y, distance));
+        if (Input.GetMouseButtonDown(0) && select)
         {
-            Vector3 instantiatePosition = Input.mousePosition;
-            Debug.Log(instantiatePosition);
-            Prefab = Instantiate(Prefab, instantiatePosition, Quaternion.identity);
-            Prefab.name = "Tree";
+            Instantiate(prefab, targetPoint, Quaternion.identity);
 
             //RaycastHit hit;
             //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -28,8 +36,24 @@ public class SpawnTree : MonoBehaviour
             //if (Physics.Raycast(ray, out hit))
             //{
             //    Point = hit.point;
-            //    Instantiate(Prefab, Point, Quaternion.identity);
+            //    Instantiate(prefab, Point, Quaternion.identity);
             //}
+        }
+    }
+
+    void ChangeSelect()
+    {
+        if (!select)
+        {
+            select = true;
+            while(select)
+                GetComponent<Image>().color = Color.red;
+        }
+        else
+        {
+            select = false;
+            while(!select)
+                GetComponent<Image>().color = Color.white;
         }
     }
 }
