@@ -142,11 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025e4e42cfe09b04496294c3b8cb40b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackedTree: {fileID: 0}
-  edgeX: 0
-  edgeY: 0
-  edgeMinX: 0
-  edgeMinY: 0
-  centerRange: 0
+  attackedTree: {fileID: 1553454343549860, guid: f496ed5136ad51743a37dc5f10291067,
+    type: 2}
+  tree: {fileID: 4194364600450676, guid: f496ed5136ad51743a37dc5f10291067, type: 2}
+  dir: {x: 0, y: 0}
   stamina: 0
   damage: 0

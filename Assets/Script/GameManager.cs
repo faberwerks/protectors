@@ -6,20 +6,20 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
-    public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
+    public static GameManager instance = null;  //Static instance of GameManager which allows it to be accessed by any other script.
 
-    public GameObject lumber;
-    public GameObject tree;
+    public GameObject lumber;                   //To have reference of the lumberjack
+    public GameObject tree;                     //To have reference of the tree
 
-    public static float seed;
-    public static float score = 0f;
-    [SerializeField] private float spawnTime;
-    [SerializeField] private float spawnTimer;
+    public static float seed;                   //Seed the player has
+    public static float score = 0f;             //Score he player has
+    [SerializeField] private float spawnTime;   //Time to spawn the lumberjack
+    [SerializeField] private float spawnTimer;  //Timer for the spawnTime
 
-    private int checker;
+    private int checker;                        //Holds the random number to determine spawned lumberjack's position
 
-    public Text scoreText;
-    public Text seedText;
+    public Text scoreText;                      //Reference to the Score text
+    public Text seedText;                       //Reference to the Seed text
 
     //Awake is always called before any Start functions
     void Awake()
@@ -59,48 +59,39 @@ public class GameManager : MonoBehaviour
         UpdateSeed();
     }
 
-    public void AddScore(float newScore)
-    {
-        score += newScore;
-        UpdateScore();
-    }
-
-    private void UpdateScore()
+    //Updates the score on screen
+    private void UpdateScore()      
     {
         scoreText.text = "Score: " + score;
     }
 
-    public void AddSeed(float newSeed)
-    {
-        seed += newSeed;
-        UpdateSeed();
-    }
-
+    //Updates the seed on screen
     private void UpdateSeed()
     {
         seedText.text = "Seed: " + seed;
     }
+
 
     private void SpawnLumberjack(int startLoc)
     {
         Vector2 dir = new Vector2(0, 0);
         switch (startLoc)
         {
-            case 1:
-                dir = Vector2.down;
+            case 1:                     //From top 
+                dir = Vector2.down;     //Set direction to bot
                 break;
-            case 2:
-                dir = Vector2.left;
+            case 2:                     //From right
+                dir = Vector2.left;     //Set direction to left
                 break;
-            case 3:
-                dir = Vector2.up;
+            case 3:                     //From bottom
+                dir = Vector2.up;       //Set direction to up
                 break;
-            case 4:
-                dir = Vector2.right;
+            case 4:                     //From left
+                dir = Vector2.right;    //Set direction to right
                 break;
         }
-        GameObject newLumberJack = (GameObject)Instantiate(lumber);
-        newLumberJack.GetComponent<LumberjackController>().InitialiseDir(dir, startLoc);
+        GameObject newLumberJack = (GameObject)Instantiate(lumber);                         //Instantiating a new Lumberjack
+        newLumberJack.GetComponent<LumberjackController>().InitialiseDir(dir, startLoc);    //Accessing lumberjack's function to set its position
     }
 
 
@@ -109,13 +100,13 @@ public class GameManager : MonoBehaviour
     {
         if (spawnTimer <= 0)
         {
-            checker = Random.Range(1, 5); //Determines which position the lumberjack is spawned in
-            SpawnLumberjack(checker);
-            spawnTimer = spawnTime;
+            checker = Random.Range(1, 5);   //Determines which position the lumberjack is spawned in
+            SpawnLumberjack(checker);       //Calls the Spawning Function
+            spawnTimer = spawnTime;         //Reset the timer to the spawnTime again
         }
         else
         {
-            spawnTimer -= Time.deltaTime;
+            spawnTimer -= Time.deltaTime;   //Timer countdown
         }
     }
 }
