@@ -11,15 +11,19 @@ public class GameManager : MonoBehaviour
     public GameObject lumber;                   //To have reference of the lumberjack
     public GameObject tree;                     //To have reference of the tree
 
-    public static float seed;                   //Seed the player has
-    public static float score = 0f;             //Score he player has
-    [SerializeField] private float spawnTime;   //Time to spawn the lumberjack
-    [SerializeField] private float spawnTimer;  //Timer for the spawnTime
+    public static bool gameStart;
 
+    public static float seed;                   
+    public static float score = 0f;             
+    [SerializeField] private float spawnTime;  
+    [SerializeField] private float gameTime;  
+
+    public static int numberOfTrees;
     private int checker;                        //Holds the random number to determine spawned lumberjack's position
 
     public Text scoreText;                      //Reference to the Score text
     public Text seedText;                       //Reference to the Seed text
+    public Text timeText;                       //Reference to the Time text
 
     //Awake is always called before any Start functions
     void Awake()
@@ -44,19 +48,20 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //debugging purpose
+        gameTime = 0;
+        numberOfTrees = 0;
+        gameStart = false;
         spawnTime = 5f;
-        spawnTimer = spawnTime;
         seed = 30f;
         UpdateScore();
         UpdateSeed();
+        UpdateTime();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Spawn();
-        UpdateScore();
-        UpdateSeed();
+        Gameplay();
     }
 
     //Updates the score on screen
@@ -69,6 +74,10 @@ public class GameManager : MonoBehaviour
     private void UpdateSeed()
     {
         seedText.text = "Seed: " + seed;
+    }
+    private void UpdateTime()
+    {
+        timeText.text = "Time: " + (int)gameTime;
     }
 
 
@@ -98,15 +107,33 @@ public class GameManager : MonoBehaviour
     //Spawns a lumberjack at a set position
     private void Spawn()
     {
-        if (spawnTimer <= 0)
+        if ((gameTime % spawnTime) <= 0.02f && !(gameTime <= 1))
         {
             checker = Random.Range(1, 5);   //Determines which position the lumberjack is spawned in
             SpawnLumberjack(checker);       //Calls the Spawning Function
-            spawnTimer = spawnTime;         //Reset the timer to the spawnTime again
+            gameTime += 0.02f;
         }
-        else
+    }
+
+    private void Gameplay()
+    {
+        if (gameStart)
         {
-            spawnTimer -= Time.deltaTime;   //Timer countdown
+            Spawn();
+            UpdateScore();
+            UpdateSeed();
+            UpdateTime();
+            gameTime += Time.deltaTime;
         }
+
+        if (gameStart && numberOfTrees == 0)
+        {
+            EndGame();
+        }
+    }
+
+    private void EndGame()
+    {
+        gameObject.SetActive(false);
     }
 }

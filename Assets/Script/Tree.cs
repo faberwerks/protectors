@@ -20,7 +20,7 @@ public class Tree : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         type = TreeType.FRUIT;
-
+        GameManager.gameStart = true;
         health = 100f;      //debugging purpose
         seedValue = 10f;        //change according to the Tree
         scoreValue = 100f;      //change according to the Tree
@@ -46,6 +46,7 @@ public class Tree : MonoBehaviour {
     {
         if (health <= 0)    //when health reaches 0, destroy the tree
         {
+            GameManager.numberOfTrees--;
             Destroy(gameObject);
         }
     }

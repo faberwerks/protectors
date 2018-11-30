@@ -31,6 +31,7 @@ public class SpawnTree : MonoBehaviour
             Instantiate(tree, targetPoint, Quaternion.identity); //create the instance of targetObject and place it at given position.
             select = false; //sets select to false so toggle button is instantly turned off.
             GameManager.seed -= treeCost;
+            GameManager.numberOfTrees += 1;
         }
 
         if(select)
