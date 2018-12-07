@@ -12,8 +12,8 @@ public class Tree : MonoBehaviour {
     protected float seedCost;       //cost to make the tree
     protected float seedValue;      //value of the seed recieved when harvested
     protected float scoreValue;     //value of the score received when harvested
-    [SerializeField] protected float harvestTime = 5f;      //time to harvest
-    [SerializeField] protected float harvestTimer = 0f;     //timer for the harveset
+    [SerializeField] protected float harvestTime = 5f;      
+    [SerializeField] protected float harvestTimer = 0f;     //timer to harveset
 
     protected bool harvestable = false;                     //to check whether the tree is harvestable or not
 

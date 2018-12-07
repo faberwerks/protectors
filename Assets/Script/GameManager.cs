@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject lumber;                   //To have reference of the lumberjack
     public GameObject tree;                     //To have reference of the tree
+    public GameObject gameOverText;
+
+    public Text scoreText;                      
+    public Text seedText;                       
+    public Text timeText;
 
     public static bool gameStart;
 
@@ -21,9 +26,8 @@ public class GameManager : MonoBehaviour
     public static int numberOfTrees;
     private int checker;                        //Holds the random number to determine spawned lumberjack's position
 
-    public Text scoreText;                      //Reference to the Score text
-    public Text seedText;                       //Reference to the Seed text
-    public Text timeText;                       //Reference to the Time text
+                       
+                    
 
     //Awake is always called before any Start functions
     void Awake()
@@ -77,7 +81,7 @@ public class GameManager : MonoBehaviour
     }
     private void UpdateTime()
     {
-        timeText.text = "Time: " + (int)gameTime;
+        timeText.text = "Time: " + (int)gameTime/60 + ":" + (int)gameTime%60;  //Minutes : Second 
     }
 
 
@@ -111,7 +115,7 @@ public class GameManager : MonoBehaviour
         {
             checker = Random.Range(1, 5);   //Determines which position the lumberjack is spawned in
             SpawnLumberjack(checker);       //Calls the Spawning Function
-            gameTime += 0.02f;
+            gameTime += Time.deltaTime;
         }
     }
 
@@ -134,6 +138,8 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
+        Debug.Log("Game Over");
+        gameOverText.SetActive(true);
         gameObject.SetActive(false);
     }
 }
