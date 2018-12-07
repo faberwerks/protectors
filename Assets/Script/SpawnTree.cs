@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class SpawnTree : MonoBehaviour
 {
-    public Button toggle; //Button for toggling the select bool between false and true
 
-    public bool select = false; //Select variable. used if player selects a tree to place.
+    public Button toggle; //Button for toggling the Select bool between false and true
+
+    public bool Select { get; set; } //Select variable. used if player Selects a tree to place.
 
     public Transform tree; //The tree we want to spawn
     
@@ -16,40 +17,42 @@ public class SpawnTree : MonoBehaviour
 
     private Vector3 point/*The mouse position*/, targetPoint;/*The target area that we want to place the tree*/
 
-    public void Start()
+    private void Start()
     {
-
+        Select = false;
     }
 
-    public void Update()
+    private void Update()
     {
         toggle.onClick.AddListener(ChangeSelect); //Command that calls a function when the toggle button is clicked
         point = Input.mousePosition; //To get the current mouse position
         targetPoint = Camera.main.ScreenToWorldPoint(new Vector3(point.x, point.y, distance)); //Convert the point according to World position
-        if (Input.GetMouseButtonDown(0) && select)
+        if (Input.GetMouseButtonDown(0) && Select)
         {
-            Instantiate(tree, targetPoint, Quaternion.identity); //create the instance of targetObject and place it at given position.
-            select = false; //sets select to false so toggle button is instantly turned off.
-            GameManager.seed -= treeCost;
-            GameManager.numberOfTrees += 1;
+                //Select = false; //sets Select to false so toggle button is instantly turned off.
+                //Instantiate(tree,targetPoint, Quaternion.identity);
+                //GameManager.seed -= treeCost;
+                //GameManager.numberOfTrees += 1;
+            
+
         }
 
-        if(select)
+        if(Select)
             toggle.GetComponent<Image>().color = Color.red; //Tree place mode
         else
             toggle.GetComponent<Image>().color = Color.white; //Can't place tree
     }
 
-    //Changing the state of "select" according to the button press.
+    //Changing the state of "Select" according to the button press.
     void ChangeSelect()
     {
-        if (!select && GameManager.seed >= treeCost)
+        if (!Select && GameManager.seed >= treeCost)
         {
-            select = true;
+            Select = true;
         }
         else
         {
-            select = false;
+            Select = false;
         }
     }
 }

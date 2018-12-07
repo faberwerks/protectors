@@ -15,8 +15,9 @@ public class GameManager : MonoBehaviour
 
     public static float seed;                   
     public static float score = 0f;             
-    [SerializeField] private float spawnTime;  
-    [SerializeField] private float gameTime;  
+    [SerializeField] private float spawnTime;  //Lumberjack spawn time
+    [SerializeField] private float gameTimer;
+    private float spawnTimer;
 
     public static int numberOfTrees;
     private int checker;                        //Holds the random number to determine spawned lumberjack's position
@@ -48,10 +49,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //debugging purpose
-        gameTime = 0;
+        gameTimer = 0;
         numberOfTrees = 0;
         gameStart = false;
-        spawnTime = 5f;
+        spawnTime = 500f;                       //debug
+        spawnTimer = spawnTime;
         seed = 30f;
         UpdateScore();
         UpdateSeed();
@@ -77,7 +79,7 @@ public class GameManager : MonoBehaviour
     }
     private void UpdateTime()
     {
-        timeText.text = "Time: " + (int)gameTime;
+        timeText.text = "Time: " + (int)gameTimer;
     }
 
 
@@ -107,11 +109,12 @@ public class GameManager : MonoBehaviour
     //Spawns a lumberjack at a set position
     private void Spawn()
     {
-        if ((gameTime % spawnTime) <= 0.02f && !(gameTime <= 1))
+        if (spawnTimer <= 0)
         {
             checker = Random.Range(1, 5);   //Determines which position the lumberjack is spawned in
             SpawnLumberjack(checker);       //Calls the Spawning Function
-            gameTime += 0.02f;
+            gameTimer += 0.02f;
+            spawnTimer = spawnTime;
         }
     }
 
@@ -123,7 +126,8 @@ public class GameManager : MonoBehaviour
             UpdateScore();
             UpdateSeed();
             UpdateTime();
-            gameTime += Time.deltaTime;
+            gameTimer += Time.deltaTime;
+            spawnTimer -= Time.deltaTime;
         }
 
         if (gameStart && numberOfTrees == 0)
