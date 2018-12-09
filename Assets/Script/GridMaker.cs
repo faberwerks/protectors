@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid : MonoBehaviour {
+public class GridMaker : MonoBehaviour {
 
     [SerializeField] private GameObject tile;
     private float size = 2f;
