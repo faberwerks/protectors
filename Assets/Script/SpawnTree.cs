@@ -9,7 +9,7 @@ public class SpawnTree : MonoBehaviour
     public Button toggle; //Button for toggling the Select bool between false and true
 
     public bool Select { get; set; } //Select variable. used if player Selects a tree to place.
-
+    
     public Transform tree; //The tree we want to spawn
     
     public float distance = 10f; //Basically a distance used for the Z so it's always placed in front
@@ -41,6 +41,7 @@ public class SpawnTree : MonoBehaviour
             toggle.GetComponent<Image>().color = Color.red; //Tree place mode
         else
             toggle.GetComponent<Image>().color = Color.white; //Can't place tree
+
     }
 
     //Changing the state of "Select" according to the button press.

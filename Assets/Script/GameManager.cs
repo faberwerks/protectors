@@ -11,8 +11,10 @@ public class GameManager : MonoBehaviour
     public GameObject lumber;                   //To have reference of the lumberjack
     public GameObject tree;                     //To have reference of the tree
 
-    public static bool gameStart;
+    public Canvas pause;
 
+    public static bool gameStart;
+    private bool paused = false;
     public static float seed;                   
     public static float score = 0f;             
     [SerializeField] private float spawnTime;  //Lumberjack spawn time
@@ -27,23 +29,23 @@ public class GameManager : MonoBehaviour
     public Text timeText;                       //Reference to the Time text
 
     //Awake is always called before any Start functions
-    void Awake()
-    {
-        //Check if instance already exists
-        if (instance == null)
+    //void Awake()
+    //{
+    //    //Check if instance already exists
+    //    if (instance == null)
 
-            //if not, set instance to this
-            instance = this;
+    //        //if not, set instance to this
+    //        instance = this;
 
-        //If instance already exists and it's not this:
-        else if (instance != this)
+    //    //If instance already exists and it's not this:
+    //    else if (instance != this)
 
-            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-            Destroy(gameObject);
+    //        //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+    //        Destroy(gameObject);
 
-        //Sets this to not be destroyed when reloading scene
-        DontDestroyOnLoad(gameObject);
-    }
+    //    //Sets this to not be destroyed when reloading scene
+    //    DontDestroyOnLoad(gameObject);
+    //}
 
     // Use this for initialization
     void Start()
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
         spawnTime = 500f;                       //debug
         spawnTimer = spawnTime;
         seed = 30f;
+        pause.enabled = false;
         UpdateScore();
         UpdateSeed();
         UpdateTime();
@@ -64,6 +67,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Gameplay();
+        if (Input.GetKeyDown("escape"))
+            paused = togglePause();
+
     }
 
     //Updates the score on screen
@@ -136,8 +142,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    bool togglePause()
+    {
+        if (Time.timeScale == 1f)
+        {
+            Time.timeScale = 0f;
+            pause.enabled = true;
+            return true;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            pause.enabled = false;
+            return false;
+        }
+    }
+
     private void EndGame()
     {
         gameObject.SetActive(false);
     }
+
+
 }
