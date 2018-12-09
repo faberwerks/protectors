@@ -5,17 +5,16 @@ using UnityEngine.UI;
 
 public class SpawnTree : MonoBehaviour
 {
+    /*
+    //  Later should change the name because this is not spawning the tree, only toggling the tree button
+    //  Changes made here also need to be change to the TileScript
+    */
 
-    public Button toggle; //Button for toggling the Select bool between false and true
+    public Button toggle;               //Button for toggling the Select bool between false and true
 
-    public bool Select { get; set; } //Select variable. used if player Selects a tree to place.
+    public bool Select { get; set; }    //Select variable. used if player Selects a tree to place.
 
-    public Transform tree; //The tree we want to spawn
-    
-    public float distance = 10f; //Basically a distance used for the Z so it's always placed in front
-    [SerializeField] private float treeCost = 5f; //Cost of a tree
-
-    private Vector3 point/*The mouse position*/, targetPoint;/*The target area that we want to place the tree*/
+    [SerializeField] private float treeCost = 5f;   //Cost of the tree
 
     private void Start()
     {

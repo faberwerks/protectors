@@ -16,7 +16,6 @@ public class TileScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         isEmpty = true;
-        
 	}
 	
 	// Update is called once per frame
@@ -26,17 +25,16 @@ public class TileScript : MonoBehaviour {
 
     private void OnMouseOver()
     {
-        //Debug.Log("Plant Tree");
-            if (Input.GetMouseButtonDown(0) && select)
-            {
-                Debug.Log("Plant Tree");
-                select = GameManager.FindObjectOfType<GameManager>().GetComponent<SpawnTree>().Select = false;
-                //targetPoint = transform.position + new Vector3(0, 0, 0f);
-                Instantiate(tree, transform.position, Quaternion.identity);
-                GameManager.seed -= 5;
-                isEmpty = true;
+        if (Input.GetMouseButtonDown(0) && select && isEmpty)
+        {
+            Debug.Log("Plant Tree");
+            select = GameManager.FindObjectOfType<GameManager>().GetComponent<SpawnTree>().Select = false;
+            //targetPoint = transform.position + new Vector3(0, 0, 0f);
+            Instantiate(tree, transform.position, Quaternion.identity);
+            GameManager.seed -= 5;                                          //later need to be changed to seed cost from the button
+            isEmpty = true;
 
-                GameManager.numberOfTrees += 1;
-            }
+            GameManager.numberOfTrees += 1;
+        }
     }
 }
