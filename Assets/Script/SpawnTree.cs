@@ -24,12 +24,13 @@ public class SpawnTree : MonoBehaviour
     private void Update()
     {
         toggle.onClick.AddListener(ChangeSelect); //Command that calls a function when the toggle button is clicked
-       
+
 
         if(Select)
             toggle.GetComponent<Image>().color = Color.red; //Tree place mode
         else
             toggle.GetComponent<Image>().color = Color.white; //Can't place tree
+
     }
 
     //Changing the state of "Select" according to the button press.

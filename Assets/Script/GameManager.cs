@@ -11,14 +11,17 @@ public class GameManager : MonoBehaviour
     public GameObject lumber;                   //To have reference of the lumberjack
     public GameObject tree;                     //To have reference of the tree
 
-    public Text scoreText;                      
-    public Text seedText;                       
+    public Text scoreText;
+    public Text seedText;
     public Text timeText;
-     
+
+    public Canvas pause;
+
     public static bool gameStart;
 
-    public static float seed;                   
-    public static float score = 0f;             
+    private bool paused = false;
+    public static float seed;
+    public static float score = 0f;
     [SerializeField] private float spawnTime;  //Lumberjack spawn time
     [SerializeField] private float gameTimer;
     private float spawnTimer;
@@ -26,7 +29,7 @@ public class GameManager : MonoBehaviour
     public static int numberOfTrees;    //Counts ALL types of tree
     private int checker;        //Holds the random number to determine spawned lumberjack's position
 
-                           
+
 
     //Awake is always called before any Start functions
     void Awake()
@@ -43,14 +46,13 @@ public class GameManager : MonoBehaviour
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
         }
-        //Sets this to not be destroyed when reloading scene
-        DontDestroyOnLoad(gameObject);
     }
 
     // Use this for initialization
     void Start()
     {
         //debugging purpose
+        pause.enabled = false;
         gameTimer = 0;
         numberOfTrees = 0;
         gameStart = false;
@@ -64,6 +66,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Gameplay();
+        if (Input.GetKeyDown("escape"))
+            paused = togglePause();
+
     }
 
     private void Gameplay()
@@ -91,7 +96,7 @@ public class GameManager : MonoBehaviour
         UpdateTime();
     }
 
-    private void UpdateScore()      
+    private void UpdateScore()
     {
         scoreText.text = "Score: " + score;
     }
@@ -111,17 +116,17 @@ public class GameManager : MonoBehaviour
         Vector2 dir = new Vector2(0, 0);
         switch (startLoc)
         {
-            case 1:                     //From top 
-                dir = Vector2.down;     
+            case 1:                     //From top
+                dir = Vector2.down;
                 break;
             case 2:                     //From right
-                dir = Vector2.left;     
+                dir = Vector2.left;
                 break;
             case 3:                     //From bottom
-                dir = Vector2.up;       
+                dir = Vector2.up;
                 break;
             case 4:                     //From left
-                dir = Vector2.right;    
+                dir = Vector2.right;
                 break;
         }
         GameObject newLumberJack = (GameObject)Instantiate(lumber);                         //Instantiating a new Lumberjack
@@ -139,8 +144,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    bool togglePause()
+    {
+        if (Time.timeScale == 1f)
+        {
+            Time.timeScale = 0f;
+            pause.enabled = true;
+            return true;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            pause.enabled = false;
+            return false;
+        }
+    }
+
     private void EndGame()
     {
         gameObject.SetActive(false);
     }
+
+
 }
