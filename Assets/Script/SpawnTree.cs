@@ -25,17 +25,7 @@ public class SpawnTree : MonoBehaviour
     private void Update()
     {
         toggle.onClick.AddListener(ChangeSelect); //Command that calls a function when the toggle button is clicked
-        point = Input.mousePosition; //To get the current mouse position
-        targetPoint = Camera.main.ScreenToWorldPoint(new Vector3(point.x, point.y, distance)); //Convert the point according to World position
-        if (Input.GetMouseButtonDown(0) && Select)
-        {
-                //Select = false; //sets Select to false so toggle button is instantly turned off.
-                //Instantiate(tree,targetPoint, Quaternion.identity);
-                //GameManager.seed -= treeCost;
-                //GameManager.numberOfTrees += 1;
-            
-
-        }
+       
 
         if(Select)
             toggle.GetComponent<Image>().color = Color.red; //Tree place mode
