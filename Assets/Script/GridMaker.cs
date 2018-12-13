@@ -5,7 +5,8 @@ using UnityEngine;
 public class GridMaker : MonoBehaviour {
 
     [SerializeField] private GameObject tile;
-    private float size = 2f;
+    [SerializeField] private GameObject border;
+    private int size = 2;
 
     // Use this for initialization
     void Start () {
@@ -19,13 +20,18 @@ public class GridMaker : MonoBehaviour {
 
     private void CreateTile()
     {
-        Instantiate(tile);
-
-        for (float x = transform.position.x; x < 15;x += size)
+        for (int x = (int)transform.position.x; x <= 16;x += size)
         {
-            for(float y = transform.position.y; y > -9; y -= size)
+            for(int y = (int)transform.position.y; y >= -11; y -= size)
             {
-                Instantiate(tile,this.gameObject.transform).transform.position = new Vector2(x, y);
+                if(x == (int)transform.position.x || y == (int)transform.position.y || x == 16 || y == -11)
+                {
+                    Instantiate(border, this.gameObject.transform).transform.position = new Vector2(x, y);
+                }
+                else
+                {
+                    Instantiate(tile, this.gameObject.transform).transform.position = new Vector2(x, y);
+                }
             }
         }
     }

@@ -118,7 +118,7 @@ public class LumberjackController : MonoBehaviour {
             attackedTree = (GameObject) collision.gameObject;
             isAttacking = true;
         }
-        if (collision.tag == "Spawner")
+        if (collision.tag == "Spawner" && isCarryingWood)
         {
             //Debug.Log("Collide With Spawner . Change Direction");
             stamina = 100;
