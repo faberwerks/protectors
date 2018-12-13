@@ -16,9 +16,10 @@ public class LumberjackController : MonoBehaviour {
     private float searchCooldownTime; //How long the Lumberjack idles in the spawn area
     private float searchCooldownTimer; //The actual countdown
 
-    private bool hit; 
-    private bool isAttacking = false; 
-    private bool isCarryingWood; 
+    private bool hit;
+    private bool isAttacking; 
+    private bool isCarryingWood;
+    private bool isWalkingToTree;
 
     // Use this for initialization
     void Start () {
@@ -26,6 +27,8 @@ public class LumberjackController : MonoBehaviour {
         searchCooldownTime = 2f;
         searchCooldownTimer = searchCooldownTime;
         isCarryingWood = false;
+        isAttacking = false;
+        isWalkingToTree = false;
         stamina = 100;
         damage = 5f;
         SetRandomPosition();
@@ -49,11 +52,16 @@ public class LumberjackController : MonoBehaviour {
                 if (!isCarryingWood)
                 {
                     hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer);
-                    if (hit)
+                    if (hit)                            //When lumberjack is seeing a Tree in its vision
                     {
+                        isWalkingToTree = true;
                         Move();
                     }
-                    else 
+                    else if (!hit && isWalkingToTree)   //When lumberjack lost his target, but already start moving
+                    {                                   //It keeps moving until it hits border
+                        Move();                         
+                    }
+                    else                                //When doesn't hit any tree, keeps looking
                     {
                         SetRandomPosition();
                     }
@@ -77,20 +85,29 @@ public class LumberjackController : MonoBehaviour {
     //to spawn randomly 
     private void SetRandomPosition()
     {
+        int randomPos = 0;
+        if (startDir == 1 || startDir == 3)
+        {
+            randomPos = Random.Range(0, 13);
+        }
+        else
+        {
+            randomPos = Random.Range(0, 8);
+        }
         switch (startDir)//Sets position according to a random range. Depends on the start point as well (up or down)
         {
             case 1:
-                transform.SetPositionAndRotation(new Vector3(Random.Range(-11f, 14f), 13f, 0), Quaternion.identity);
+                transform.position = new Vector2(-13f + (randomPos * 2) ,11f);
                 break;
 
             case 2:
-                transform.SetPositionAndRotation(new Vector3(14f, Random.Range(-13f, 13f), 0), Quaternion.identity);
+                transform.position = new Vector2(15f , 7f - (randomPos * 2));
                 break;
             case 3:
-                transform.SetPositionAndRotation(new Vector3(Random.Range(-11f, 14f), -13f, 0), Quaternion.identity);
+                transform.position = new Vector2(-13f + (randomPos * 2), -11f);
                 break;
             case 4:
-                transform.SetPositionAndRotation(new Vector3(-13f, Random.Range(-13f, 13f), 0), Quaternion.identity);
+                transform.position = new Vector2(-17f, 7f - (randomPos * 2));
                 break;
         }
         
@@ -118,14 +135,13 @@ public class LumberjackController : MonoBehaviour {
             attackedTree = (GameObject) collision.gameObject;
             isAttacking = true;
         }
-        if (collision.tag == "Spawner" && isCarryingWood)
+        if (collision.tag == "Border" && (isCarryingWood || isWalkingToTree))
         {
-            //Debug.Log("Collide With Spawner . Change Direction");
             stamina = 100;
-            dir *= -1;
+            dir *= isCarryingWood ?  -1 : 1;
             isCarryingWood = false;
+            isWalkingToTree = false;
             SetRandomPosition();
-            hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer);
             searchCooldownTimer = searchCooldownTime;
         }
     }

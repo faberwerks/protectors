@@ -6,6 +6,7 @@ MonoImporter:
   defaultReferences:
   - tile: {fileID: 1854457680092930, guid: d612d256c6af4c340ad697f5c3feb5ec, type: 2}
   - border: {fileID: 1928355579062428, guid: 54b4e796c656ba34593152ae57e34a06, type: 2}
+  - pavement: {fileID: 1226983681962816, guid: 055290f599211ba4b857e79333725bf1, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         Gameplay();
         if (Input.GetKeyDown("escape"))
-            paused = togglePause();
+            paused = TogglePause();
 
     }
 
@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    bool togglePause()
+    bool TogglePause()
     {
         if (Time.timeScale == 1f)
         {

@@ -4,33 +4,42 @@ using UnityEngine;
 
 public class GridMaker : MonoBehaviour {
 
-    [SerializeField] private GameObject tile;
-    [SerializeField] private GameObject border;
+    public GameObject tile;
+    public GameObject border;
+    public GameObject pavement;
+
+    [SerializeField] private int xLength = 17;
+    [SerializeField] private int yLength = 12;
     private int size = 2;
 
     // Use this for initialization
     void Start () {
         CreateTile();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void CreateTile()
     {
-        for (int x = (int)transform.position.x; x <= 16;x += size)
+        int yCurr, xCurr;
+        int xPos = (int)transform.position.x;
+        int yPos = (int)transform.position.y;
+        
+
+        for (xPos = (int)transform.position.x, xCurr = 0; xCurr < xLength; xPos += size, xCurr += 1)
         {
-            for(int y = (int)transform.position.y; y >= -11; y -= size)
+            for (yPos = (int)transform.position.y, yCurr = 0; yCurr < yLength; yPos -= size, yCurr +=1)
             {
-                if(x == (int)transform.position.x || y == (int)transform.position.y || x == 16 || y == -11)
+                var tilePos = new Vector2(xPos, yPos);
+                if (xCurr == 0 || yCurr == 0 || xCurr == xLength-1|| yCurr == yLength-1)
                 {
-                    Instantiate(border, this.gameObject.transform).transform.position = new Vector2(x, y);
+                    Instantiate(border, tilePos, Quaternion.identity, this.gameObject.transform);
+                }
+                else if (xCurr == 1 || yCurr == 1 || xCurr == xLength - 2 || yCurr == yLength - 2)
+                {
+                    Instantiate(pavement, tilePos, Quaternion.identity, this.gameObject.transform);
                 }
                 else
                 {
-                    Instantiate(tile, this.gameObject.transform).transform.position = new Vector2(x, y);
+                    Instantiate(tile, tilePos, Quaternion.identity, this.gameObject.transform);
                 }
             }
         }

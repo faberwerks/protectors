@@ -449,7 +449,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 445608703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -399.99997, y: -307.32858, z: 0}
+  m_LocalPosition: {x: -254, y: -276, z: 0}
   m_LocalScale: {x: 1.8912529, y: 1.8912529, z: 1.8912529}
   m_Children:
   - {fileID: 2009753836}
@@ -637,6 +637,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 1854457680092930, guid: d612d256c6af4c340ad697f5c3feb5ec, type: 2}
   border: {fileID: 1928355579062428, guid: 54b4e796c656ba34593152ae57e34a06, type: 2}
+  pavement: {fileID: 1226983681962816, guid: 055290f599211ba4b857e79333725bf1, type: 2}
+  xLength: 17
+  yLength: 12
 --- !u!4 &770648882
 Transform:
   m_ObjectHideFlags: 0
@@ -644,7 +647,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 770648880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.27, y: 9.72, z: 0}
+  m_LocalPosition: {x: -17, y: 11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -770,9 +773,9 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 0.8
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -842,7 +845,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1674093226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -51, z: 0}
+  m_LocalPosition: {x: -204, y: 11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 577102503}
@@ -1099,7 +1102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 344.2, y: 255}
+  m_AnchoredPosition: {x: 346.1, y: 274.2}
   m_SizeDelta: {x: 103.2, y: 24.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2009753837
