@@ -9,7 +9,7 @@ public class Tree : MonoBehaviour {
     public TreeType type;           //to determine the type of the tree
 
     public float health;            //tree's health
-    protected float seedCost;       //cost to make the tree
+    public float seedCost;       //cost to make the tree
     protected float seedValue;      //value of the seed recieved when harvested
     protected float scoreValue;     //value of the score received when harvested
     [SerializeField] protected float harvestTime = 5f;      //time to harvest
@@ -21,6 +21,7 @@ public class Tree : MonoBehaviour {
 	void Start () {
         type = TreeType.FRUIT;
         GameManager.gameStart = true;
+        seedCost = 5f;
         health = 100f;      //debugging purpose
         seedValue = 10f;        //change according to the Tree
         scoreValue = 100f;      //change according to the Tree
@@ -93,5 +94,14 @@ public class Tree : MonoBehaviour {
     private void OnMouseDown()
     {
         Harvest();
+    }
+
+    public void InitialiseAttribute(float health,float seedCost,float seedValue,float scoreValue,float harvestTime)
+    {
+        this.health = health;
+        this.seedCost = seedCost;
+        this.seedValue = seedValue;
+        this.scoreValue = scoreValue;
+        this.harvestTime = harvestTime;
     }
 }

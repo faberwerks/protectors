@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TileScript : MonoBehaviour {
+    
 
     private bool isEmpty;
 
@@ -15,12 +16,13 @@ public class TileScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        gameManager = GameManager.FindObjectOfType<GameManager>().gameObject;
         isEmpty = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        select = GameManager.FindObjectOfType<GameManager>().GetComponent<SpawnTree>().Select;
+        select = gameManager.GetComponent<SpawnTree>().Select;
     }
 
     private void OnMouseOver()
@@ -28,10 +30,10 @@ public class TileScript : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && select && isEmpty)
         {
             Debug.Log("Plant Tree");
-            select = GameManager.FindObjectOfType<GameManager>().GetComponent<SpawnTree>().Select = false;
+            select = gameManager.GetComponent<SpawnTree>().Select = false;
             //targetPoint = transform.position + new Vector3(0, 0, 0f);
             Instantiate(tree, transform.position, Quaternion.identity);
-            GameManager.seed -= 5; 
+            GameManager.seed -= tree.GetComponent<Tree>().seedCost; 
 
             GameManager.numberOfTrees += 1;
         }

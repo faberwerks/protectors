@@ -10,16 +10,19 @@ public class GameManager : MonoBehaviour
 
     public GameObject lumber;                   //To have reference of the lumberjack
     public GameObject tree;                     //To have reference of the tree
+    public GameObject gameOver;
 
     public Text scoreText;
     public Text seedText;
     public Text timeText;
+    
 
-    public Canvas pause;
+    public Canvas pauseCanvas;
 
     public static bool gameStart;
-
+    public static bool resumeChecker = false;
     private bool paused = false;
+
     public static float seed;
     public static float score = 0f;
     [SerializeField] private float spawnTime;  //Lumberjack spawn time
@@ -52,7 +55,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //debugging purpose
-        pause.enabled = false;
+        pauseCanvas.enabled = false;
         gameTimer = 0;
         numberOfTrees = 0;
         gameStart = false;
@@ -66,9 +69,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Gameplay();
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("escape") || resumeChecker)
+        {
             paused = TogglePause();
-
+            resumeChecker = false;
+        }
     }
 
     private void Gameplay()
@@ -145,25 +150,26 @@ public class GameManager : MonoBehaviour
     }
 
 
-    bool TogglePause()
+    private bool TogglePause()
     {
         if (Time.timeScale == 1f)
         {
             Time.timeScale = 0f;
-            pause.enabled = true;
+            pauseCanvas.enabled = true;
             return true;
         }
         else
         {
             Time.timeScale = 1f;
-            pause.enabled = false;
+            pauseCanvas.enabled = false;
             return false;
         }
     }
 
     private void EndGame()
     {
-        gameObject.SetActive(false);
+        Time.timeScale = 0;
+        gameOver.SetActive(true);
     }
 
 

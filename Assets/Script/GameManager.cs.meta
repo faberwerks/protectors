@@ -3,7 +3,13 @@ guid: ff66cd3a521646844bf74c61b7a8f122
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - lumber: {fileID: 1301386081600150, guid: d497992e4fc9c0646a6df17e528eec9c, type: 2}
+  - tree: {fileID: 1553454343549860, guid: f496ed5136ad51743a37dc5f10291067, type: 2}
+  - scoreText: {instanceID: 0}
+  - seedText: {instanceID: 0}
+  - timeText: {instanceID: 0}
+  - pause: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
