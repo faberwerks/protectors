@@ -12,11 +12,10 @@ public class ChangeButton : MonoBehaviour {
         spawn = GameManager.FindObjectOfType<GameManager>().GetComponent<SpawnTree>();  
     }
 
-    public void OnMouseOver()
+    public void OnClick()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            spawn.toggle = this.gameObject.GetComponent<Button>();
-        }
+        spawn.toggle.GetComponent<Image>().color = Color.white;
+        spawn.toggle = this.gameObject.GetComponent<Button>();
+        Debug.Log("hit");
     }
 }

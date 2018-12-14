@@ -14,8 +14,6 @@ public class SpawnTree : MonoBehaviour
 
     public bool Select { get; set; }    //Select variable. used if player Selects a tree to place.
 
-    [SerializeField] private float treeCost = 5f;   //Cost of the tree
-
     private void Start()
     {
         Select = false;
@@ -36,7 +34,7 @@ public class SpawnTree : MonoBehaviour
     //Changing the state of "Select" according to the button press.
     void ChangeSelect()
     {
-        if (!Select && GameManager.seed >= treeCost)
+        if (!Select && GameManager.seed >= toggle.GetComponent<TreeProperties>().seedCost)
         {
             Select = true;
         }

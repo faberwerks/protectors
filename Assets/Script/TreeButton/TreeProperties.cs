@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TreeProperties:MonoBehaviour {
 
-    [SerializeField] private float health;
-    [SerializeField] private float seedCost;
-    [SerializeField] private float seedValue;
-    [SerializeField] private float scoreValue;
-    [SerializeField] private float harvestTime;
+    public float health;
+    public float seedCost;
+    public float seedValue;
+    public float scoreValue;
+    public float harvestTime;
 }

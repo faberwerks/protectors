@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TileScript : MonoBehaviour {
-    
+
+    private TreeProperties properties;
 
     private bool isEmpty;
 
@@ -31,9 +32,10 @@ public class TileScript : MonoBehaviour {
         {
             Debug.Log("Plant Tree");
             select = gameManager.GetComponent<SpawnTree>().Select = false;
-            //targetPoint = transform.position + new Vector3(0, 0, 0f);
+            properties = gameManager.GetComponent<SpawnTree>().toggle.GetComponent<TreeProperties>();
+            tree.GetComponent<Tree>().InitialiseAttribute(properties.health, properties.seedValue, properties.scoreValue, properties.harvestTime);
             Instantiate(tree, transform.position, Quaternion.identity);
-            GameManager.seed -= tree.GetComponent<Tree>().seedCost; 
+            GameManager.seed -= gameManager.GetComponent<SpawnTree>().toggle.GetComponent<TreeProperties>().seedCost; 
 
             GameManager.numberOfTrees += 1;
         }

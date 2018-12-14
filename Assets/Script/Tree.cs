@@ -8,10 +8,10 @@ public class Tree : MonoBehaviour {
 
     public TreeType type;           //to determine the type of the tree
 
-    public float health;            //tree's health
-    public float seedCost;       //cost to make the tree
-    protected float seedValue;      //value of the seed recieved when harvested
-    protected float scoreValue;     //value of the score received when harvested
+    public float health = 100f;            //tree's health
+    public float SeedCost { get; set; }       //cost to make the tree
+    private float seedValue = 10f;      //value of the seed recieved when harvested
+    private float scoreValue = 100f;     //value of the score received when harvested
     [SerializeField] protected float harvestTime = 5f;      //time to harvest
     [SerializeField] protected float harvestTimer = 0f;     //timer for the harveset
 
@@ -21,11 +21,11 @@ public class Tree : MonoBehaviour {
 	void Start () {
         type = TreeType.FRUIT;
         GameManager.gameStart = true;
-        seedCost = 5f;
-        health = 100f;      //debugging purpose
-        seedValue = 10f;        //change according to the Tree
-        scoreValue = 100f;      //change according to the Tree
-        harvestTime = 5f;       //change according to the Tree
+        // SeedCost = 5f;
+        //health = 100f;      //debugging purpose
+        //seedValue = 10f;        //change according to the Tree
+        //scoreValue = 100f;      //change according to the Tree
+        //harvestTime = 5f;       //change according to the Tree
         harvestTimer = harvestTime;
 	}
 	
@@ -65,7 +65,7 @@ public class Tree : MonoBehaviour {
             if (harvestTimer <= 0) 
             {
                 harvestable = true;             //when timer runs out, set tree into harvestable
-                GetComponent<Renderer>().material.SetColor("_Color",Color.red);
+                GetComponent<SpriteRenderer>().material.SetColor("_Color",Color.black);
             }
         }
     }
@@ -83,7 +83,7 @@ public class Tree : MonoBehaviour {
             GameManager.score += scoreValue;
             GameManager.seed += seedValue;
 
-            GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+            GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.green);
             Debug.Log("Score: " + GameManager.score);
             Debug.Log("Seed: " + GameManager.seed);
             harvestable = false;                   //set back the harvestable to false
@@ -96,10 +96,9 @@ public class Tree : MonoBehaviour {
         Harvest();
     }
 
-    public void InitialiseAttribute(float health,float seedCost,float seedValue,float scoreValue,float harvestTime)
+    public void InitialiseAttribute(float health,float seedValue,float scoreValue,float harvestTime)
     {
         this.health = health;
-        this.seedCost = seedCost;
         this.seedValue = seedValue;
         this.scoreValue = scoreValue;
         this.harvestTime = harvestTime;
