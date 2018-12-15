@@ -103,7 +103,7 @@ public class Tree : MonoBehaviour {
 
     private TreeType CheckTreeType()
     {
-        if(treeTypeNumber < 3)
+        if(treeTypeNumber < 4)
         {
             return TreeType.FRUIT;
         }
