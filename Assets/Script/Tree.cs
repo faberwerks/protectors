@@ -18,8 +18,7 @@ public class Tree : MonoBehaviour {
     private float seedValue = 10f;      //value of the seed recieved when harvested
     private float scoreValue = 100f;     //value of the score received when harvested
     [SerializeField] protected float harvestTime = 5f;      //time to harvest
-    [SerializeField] protected float harvestTimer = 0f;     //timer for the harveset
-    private int treeLayer = LayerMask.GetMask("Tree");
+    [SerializeField] protected float harvestTimer = 0f;     //timer 
 
     protected bool harvestable = false;                     //to check whether the tree is harvestable or not
 
@@ -127,7 +126,7 @@ public class Tree : MonoBehaviour {
         {
             for(float y = -1f;y <= 1; y++)
             {
-                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y),Mathf.Infinity,treeLayer);
+                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y),Mathf.Infinity);
                 Tree targetTree = hitInfo.transform.gameObject.GetComponent<Tree>();
                 if (hitInfo.transform.tag == "Tree" && (x != 0|| y != 0) && targetTree.health < targetTree.maxHealth)
                 {
@@ -144,7 +143,7 @@ public class Tree : MonoBehaviour {
         {
             for (float y = -1f; y <= 1; y++)
             {
-                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 1f,treeLayer);
+                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 1f);
                 Tree targetTree = hitInfo.transform.gameObject.GetComponent<Tree>();
                 if (hitInfo.transform.tag == "Tree" && (x != 0 || y != 0) && !targetTree.isEffectedByMaple)
                 {
