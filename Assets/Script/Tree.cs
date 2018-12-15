@@ -8,6 +8,8 @@ public class Tree : MonoBehaviour {
 
     public TreeType type;           //to determine the type of the tree
 
+    private int treeTypeNumber;
+
     public float health = 100f;            //tree's health
     public float SeedCost { get; set; }       //cost to make the tree
     private float seedValue = 10f;      //value of the seed recieved when harvested
@@ -19,13 +21,8 @@ public class Tree : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        type = TreeType.FRUIT;
         GameManager.gameStart = true;
-        // SeedCost = 5f;
-        //health = 100f;      //debugging purpose
-        //seedValue = 10f;        //change according to the Tree
-        //scoreValue = 100f;      //change according to the Tree
-        //harvestTime = 5f;       //change according to the Tree
+        type = CheckTreeType();
         harvestTimer = harvestTime;
 	}
 	
@@ -71,7 +68,17 @@ public class Tree : MonoBehaviour {
     }
 
     //The main algorithm for supporting tree (SUPPORT tree)
-    protected void TreeEffect() { }
+    protected void TreeEffect()
+    {
+        if(treeTypeNumber == 4)
+        {
+            GrapePower();
+        }
+        else
+        {
+            MaplePower();
+        }
+    }
 
     //Things what will happen when a FRUIT tree is harvested
     protected void Harvest()
@@ -90,14 +97,37 @@ public class Tree : MonoBehaviour {
         }
     }
 
+    private TreeType CheckTreeType()
+    {
+        if(treeTypeNumber < 3)
+        {
+            return TreeType.FRUIT;
+        }
+        else
+        {
+            return TreeType.SUPPORT;
+        }
+    }
+
     //Do Harvest when the tree is clicked by the mouse
     private void OnMouseDown()
     {
         Harvest();
     }
 
-    public void InitialiseAttribute(float health,float seedValue,float scoreValue,float harvestTime)
+    private void GrapePower()
     {
+
+    }
+
+    private void MaplePower()
+    {
+
+    }
+
+    public void InitialiseAttribute(float health,float seedValue,float scoreValue,float harvestTime,int treeTypeNumber)
+    {
+        this.treeTypeNumber = treeTypeNumber;
         this.health = health;
         this.seedValue = seedValue;
         this.scoreValue = scoreValue;

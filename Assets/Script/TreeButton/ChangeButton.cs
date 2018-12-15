@@ -16,6 +16,5 @@ public class ChangeButton : MonoBehaviour {
     {
         spawn.toggle.GetComponent<Image>().color = Color.white;
         spawn.toggle = this.gameObject.GetComponent<Button>();
-        Debug.Log("hit");
     }
 }

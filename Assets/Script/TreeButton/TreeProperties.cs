@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TreeProperties:MonoBehaviour {
 
+    public int treeTypeNumber;
     public float health;
     public float seedCost;
     public float seedValue;
