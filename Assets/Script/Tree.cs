@@ -8,19 +8,24 @@ public class Tree : MonoBehaviour {
 
     public TreeType type;           //to determine the type of the tree
 
-    private int treeTypeNumber;
+    public bool isEffectedByMaple = false;
 
+    public int treeTypeNumber;
+
+    public float maxHealth;
     public float health = 100f;            //tree's health
     public float SeedCost { get; set; }       //cost to make the tree
     private float seedValue = 10f;      //value of the seed recieved when harvested
     private float scoreValue = 100f;     //value of the score received when harvested
     [SerializeField] protected float harvestTime = 5f;      //time to harvest
     [SerializeField] protected float harvestTimer = 0f;     //timer for the harveset
+    private int treeLayer = LayerMask.GetMask("Tree");
 
     protected bool harvestable = false;                     //to check whether the tree is harvestable or not
 
 	// Use this for initialization
 	void Start () {
+        maxHealth = health;
         GameManager.gameStart = true;
         type = CheckTreeType();
         harvestTimer = harvestTime;
@@ -72,9 +77,9 @@ public class Tree : MonoBehaviour {
     {
         if(treeTypeNumber == 4)
         {
-            GrapePower();
+           Invoke("GrapePower",2f);
         }
-        else
+        else if(treeTypeNumber == 5)
         {
             MaplePower();
         }
@@ -117,12 +122,37 @@ public class Tree : MonoBehaviour {
 
     private void GrapePower()
     {
-
+        
+        for (float x = -1f; x <= 1; x++)
+        {
+            for(float y = -1f;y <= 1; y++)
+            {
+                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y),Mathf.Infinity,treeLayer);
+                Tree targetTree = hitInfo.transform.gameObject.GetComponent<Tree>();
+                if (hitInfo.transform.tag == "Tree" && (x != 0|| y != 0) && targetTree.health < targetTree.maxHealth)
+                {
+                    hitInfo.transform.gameObject.GetComponent<Tree>().health += 15;
+                }
+            }
+        }
+        CancelInvoke();
     }
 
     private void MaplePower()
     {
-
+        for (float x = -1f; x <= 1; x++)
+        {
+            for (float y = -1f; y <= 1; y++)
+            {
+                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 1f,treeLayer);
+                Tree targetTree = hitInfo.transform.gameObject.GetComponent<Tree>();
+                if (hitInfo.transform.tag == "Tree" && (x != 0 || y != 0) && !targetTree.isEffectedByMaple)
+                {
+                    targetTree.harvestTime -= 5;
+                    targetTree.isEffectedByMaple = true;
+                }
+            }
+        }
     }
 
     public void InitialiseAttribute(float health,float seedValue,float scoreValue,float harvestTime,int treeTypeNumber)

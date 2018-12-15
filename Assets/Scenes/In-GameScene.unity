@@ -1025,11 +1025,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f14867d66c6185429c359da7e4d540d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treeTypeNumber: 1
   health: 100
   seedCost: 10
   seedValue: 15
   scoreValue: 100
-  harvestTime: 3
+  harvestTime: 5
 --- !u!114 &734828534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,11 +1368,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f14867d66c6185429c359da7e4d540d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treeTypeNumber: 2
   health: 100
   seedCost: 2
   seedValue: 7
   scoreValue: 50
-  harvestTime: 1
+  harvestTime: 3
 --- !u!114 &945455696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1730,6 +1732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f14867d66c6185429c359da7e4d540d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treeTypeNumber: 4
   health: 100
   seedCost: 20
   seedValue: 0
@@ -2277,6 +2280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f14867d66c6185429c359da7e4d540d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treeTypeNumber: 5
   health: 100
   seedCost: 20
   seedValue: 0
@@ -2461,6 +2465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f14867d66c6185429c359da7e4d540d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treeTypeNumber: 3
   health: 400
   seedCost: 25
   seedValue: 0
@@ -2952,11 +2957,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f14867d66c6185429c359da7e4d540d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treeTypeNumber: 0
   health: 100
   seedCost: 5
   seedValue: 10
   scoreValue: 100
-  harvestTime: 5
+  harvestTime: 7
 --- !u!114 &2009753841
 MonoBehaviour:
   m_ObjectHideFlags: 0

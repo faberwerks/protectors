@@ -34,7 +34,7 @@ public class TileScript : MonoBehaviour {
             select = gameManager.GetComponent<SpawnTree>().Select = false;
             properties = gameManager.GetComponent<SpawnTree>().toggle.GetComponent<TreeProperties>();
             tree.GetComponent<Tree>().InitialiseAttribute(properties.health, properties.seedValue, properties.scoreValue, properties.harvestTime,properties.treeTypeNumber);
-            Instantiate(tree, transform.position, Quaternion.identity);
+            Instantiate(tree, new Vector3(transform.position.x,transform.position.y,-1f), Quaternion.identity);
             GameManager.seed -= gameManager.GetComponent<SpawnTree>().toggle.GetComponent<TreeProperties>().seedCost; 
 
             GameManager.numberOfTrees += 1;
