@@ -49,6 +49,24 @@ public class Tree : MonoBehaviour {
         if (health <= 0)    //when health reaches 0, destroy the tree
         {
             GameManager.numberOfTrees--;
+            if(treeTypeNumber == 5)
+            {
+                for (float x = -1f; x <= 1; x++)
+                {
+                    for (float y = -1f; y <= 1; y++)
+                    {
+                        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 2f, LayerMask.GetMask("Tree"));
+                        if (hitInfo)
+                        {
+                            if ((x != 0 || y != 0) && hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple)
+                            {
+                                hitInfo.transform.gameObject.GetComponent<Tree>().harvestTime += 2;
+                                hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple = false;
+                            }
+                        }
+                    }
+                }
+            }
             Destroy(gameObject);
         }
     }
@@ -150,7 +168,7 @@ public class Tree : MonoBehaviour {
                 {
                     if ((x != 0 || y != 0) && !hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple)
                     {
-                        hitInfo.transform.gameObject.GetComponent<Tree>().harvestTime -= 1;
+                        hitInfo.transform.gameObject.GetComponent<Tree>().harvestTime -= 2;
                         hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple = true;
                     }
                 }
