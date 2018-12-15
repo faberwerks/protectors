@@ -10,6 +10,7 @@ public class LumberjackController : MonoBehaviour {
 
     private int startDir;
     private int treeLayer;
+    private int treeLayer2;
 
     public float stamina; 
     public float damage;
@@ -17,6 +18,7 @@ public class LumberjackController : MonoBehaviour {
     private float searchCooldownTimer; //The actual countdown
 
     private bool hit;
+    private bool hit2;
     private bool isAttacking; 
     private bool isCarryingWood;
     private bool isWalkingToTree;
@@ -33,6 +35,7 @@ public class LumberjackController : MonoBehaviour {
         damage = 5f;
         SetRandomPosition();
         treeLayer = LayerMask.GetMask("Tree");
+        treeLayer2 = LayerMask.GetMask("SupportTree");
     }
      
 	// Update is called once per frame
@@ -52,7 +55,8 @@ public class LumberjackController : MonoBehaviour {
                 if (!isCarryingWood)
                 {
                     hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer);
-                    if (hit)                            //When lumberjack is seeing a Tree in its vision
+                    hit2 = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer2);
+                    if (hit || hit2)                            //When lumberjack is seeing a Tree in its vision
                     {
                         isWalkingToTree = true;
                         Move();

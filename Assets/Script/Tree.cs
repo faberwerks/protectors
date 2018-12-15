@@ -109,6 +109,7 @@ public class Tree : MonoBehaviour {
         }
         else
         {
+            gameObject.layer = LayerMask.GetMask("SupportTree");
             return TreeType.SUPPORT;
         }
     }
@@ -121,16 +122,17 @@ public class Tree : MonoBehaviour {
 
     private void GrapePower()
     {
-        
         for (float x = -1f; x <= 1; x++)
         {
             for(float y = -1f;y <= 1; y++)
             {
-                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y),Mathf.Infinity);
-                Tree targetTree = hitInfo.transform.gameObject.GetComponent<Tree>();
-                if (hitInfo.transform.tag == "Tree" && (x != 0|| y != 0) && targetTree.health < targetTree.maxHealth)
+                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y),2f,LayerMask.GetMask("Tree"));
+                if (hitInfo)
                 {
-                    hitInfo.transform.gameObject.GetComponent<Tree>().health += 15;
+                    if ((x != 0 || y != 0) && hitInfo.transform.gameObject.GetComponent<Tree>().health < hitInfo.transform.gameObject.GetComponent<Tree>().maxHealth)
+                    {
+                        hitInfo.transform.gameObject.GetComponent<Tree>().health += 15;
+                    }
                 }
             }
         }
@@ -143,12 +145,14 @@ public class Tree : MonoBehaviour {
         {
             for (float y = -1f; y <= 1; y++)
             {
-                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 1f);
-                Tree targetTree = hitInfo.transform.gameObject.GetComponent<Tree>();
-                if (hitInfo.transform.tag == "Tree" && (x != 0 || y != 0) && !targetTree.isEffectedByMaple)
+                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 2f,LayerMask.GetMask("Tree"));
+                if (hitInfo)
                 {
-                    targetTree.harvestTime -= 5;
-                    targetTree.isEffectedByMaple = true;
+                    if ((x != 0 || y != 0) && !hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple)
+                    {
+                        hitInfo.transform.gameObject.GetComponent<Tree>().harvestTime -= 1;
+                        hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple = true;
+                    }
                 }
             }
         }
