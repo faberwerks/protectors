@@ -65,7 +65,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!114 &114530948387395348
 MonoBehaviour:
@@ -79,7 +79,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  health: 100
+  isEffectedByMaple: 0
+  treeTypeNumber: 3
+  maxHealth: 0
+  health: 400
   harvestTime: 0
   harvestTimer: 0
 --- !u!212 &212899534336826840
