@@ -79,11 +79,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  appleTree: {fileID: 21300000, guid: 2209a96ca6e468345a2054914ede0f12, type: 3}
+  appleTreeHarvest: {fileID: 21300002, guid: 2209a96ca6e468345a2054914ede0f12, type: 3}
+  mangoTree: {fileID: 21300000, guid: 0cf1b675d9d0a054ab1d0d666e09ab98, type: 3}
+  mangoTreeHarvest: {fileID: 21300002, guid: 0cf1b675d9d0a054ab1d0d666e09ab98, type: 3}
   isEffectedByMaple: 0
-  treeTypeNumber: 3
+  treeTypeNumber: 0
   maxHealth: 0
-  health: 400
-  harvestTime: 0
+  health: 100
+  harvestTime: 7
   harvestTimer: 0
 --- !u!212 &212899534336826840
 SpriteRenderer:

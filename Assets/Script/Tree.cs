@@ -8,6 +8,9 @@ public class Tree : MonoBehaviour {
 
     public TreeType type;           //to determine the type of the tree
 
+    public Sprite appleTree, appleTreeHarvest;
+    public Sprite mangoTree, mangoTreeHarvest;
+
     public bool isEffectedByMaple = false;
 
     public int treeTypeNumber;
@@ -43,6 +46,7 @@ public class Tree : MonoBehaviour {
                 break;
         }
 	}
+
     //check the health of the Tree
     protected void CheckHealth()
     {
@@ -84,7 +88,20 @@ public class Tree : MonoBehaviour {
             if (harvestTimer <= 0) 
             {
                 harvestable = true;             //when timer runs out, set tree into harvestable
-                GetComponent<SpriteRenderer>().material.SetColor("_Color",Color.black);
+
+                if(treeTypeNumber == 0)
+                {
+                    this.GetComponent<SpriteRenderer>().sprite = appleTreeHarvest;
+                }
+                else if (treeTypeNumber == 1)
+                {
+                    this.GetComponent<SpriteRenderer>().sprite = mangoTreeHarvest;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.black);
+                }
+                
             }
         }
     }
@@ -121,7 +138,19 @@ public class Tree : MonoBehaviour {
 
     private TreeType CheckTreeType()
     {
-        if(treeTypeNumber < 4)
+        if(treeTypeNumber == 0)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = appleTree;
+            Texture2D texture2D = new Texture2D(64, 64);
+            texture2D.Apply();
+            return TreeType.FRUIT;
+        }
+        else if(treeTypeNumber == 1)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = mangoTree;
+            return TreeType.FRUIT;
+        }
+        else if(treeTypeNumber < 4)
         {
             return TreeType.FRUIT;
         }
