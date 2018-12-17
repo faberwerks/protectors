@@ -33,7 +33,6 @@ public class TileScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && select && isEmpty)
         {
-            Debug.Log("Plant Tree");
             select = gameManager.GetComponent<ButtonToggler>().Select = false;
             properties = gameManager.GetComponent<ButtonToggler>().toggle.GetComponent<TreeProperties>();
             tree.GetComponent<Tree>().InitialiseAttribute(properties.health, properties.seedValue, properties.scoreValue, properties.harvestTime, properties.treeTypeNumber);

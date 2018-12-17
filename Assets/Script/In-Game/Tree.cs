@@ -25,7 +25,7 @@ public class Tree : MonoBehaviour
     public float health = 100f;            //tree's health
     // public float SeedCost { get; set; }       //cost to make the tree
     [SerializeField] private float seedValue;      //value of the seed recieved when harvested
-    private float scoreValue;     //value of the score received when harvested
+    [SerializeField] private float scoreValue;     //value of the score received when harvested
     [SerializeField] protected float harvestTime;  //time to harvest
     [SerializeField] protected float harvestTimer;    //timer 
 
@@ -44,7 +44,6 @@ public class Tree : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckHealth();
         switch (type)   //the function differs depending on the tree type (FRUIT or SUPPORT)
         {
             case (TreeType.FRUIT):
@@ -54,6 +53,7 @@ public class Tree : MonoBehaviour
                 TreeEffect();
                 break;
         }
+        CheckHealth();
     }
 
     //check the health of the Tree
@@ -147,8 +147,8 @@ public class Tree : MonoBehaviour
             {
                 this.GetComponent<SpriteRenderer>().sprite = orangeTree;
             }
-            Debug.Log("Score: " + GameManager.score);
-            Debug.Log("Seed: " + GameManager.seed);
+            //Debug.Log("Score: " + GameManager.score);
+            //Debug.Log("Seed: " + GameManager.seed);
             harvestable = false;                   //set back the harvestable to false
         }
     }
@@ -191,7 +191,7 @@ public class Tree : MonoBehaviour
                 this.GetComponent<SpriteRenderer>().sprite = mapleTree;
             }
             GameManager.numberofSuppTree += 1;
-            gameObject.layer = LayerMask.GetMask("SupportTree");
+            gameObject.layer = 10;
             return TreeType.SUPPORT;
         }
     }
@@ -232,8 +232,8 @@ public class Tree : MonoBehaviour
                 {
                     if ((x != 0 || y != 0) && !hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple)
                     {
-                        hitInfo.transform.gameObject.GetComponent<Tree>().harvestTime -= 2;
                         hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple = true;
+                        hitInfo.transform.gameObject.GetComponent<Tree>().harvestTime -= 2;
                     }
                 }
             }
@@ -251,8 +251,9 @@ public class Tree : MonoBehaviour
                 {
                     if ((x != 0 || y != 0) && hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple)
                     {
-                        hitInfo.transform.gameObject.GetComponent<Tree>().harvestTime += 2;
                         hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple = false;
+                        hitInfo.transform.gameObject.GetComponent<Tree>().harvestTime += 2;
+                        Debug.Log("deactive");
                     }
                 }
             }

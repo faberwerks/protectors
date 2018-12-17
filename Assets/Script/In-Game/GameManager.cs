@@ -23,11 +23,10 @@ public class GameManager : MonoBehaviour
     public static bool gameStart;
     public static bool resumeChecker;
     public static bool hasPlantedFruit;           //Check if a Fruit Tree has been planted
-    private bool paused;
     private bool startCountdown;
 
     public static float seed;
-    public static float score = 0f;
+    public static float score;
     public float lowestSeedCost;                //holds the lowest seed cost for FRUIT Tree
     [SerializeField] private float spawnTime;   //Lumberjack spawn time
     [SerializeField] private float gameTimer;
@@ -64,19 +63,19 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //debugging purpose
-        lowestSeedCost = 2f;                    //Orange Tree
+        lowestSeedCost = 2f;                        //Orange Tree
         finalCountdown = 15f;                       //debug
         countdown.SetActive(false);
         resumeChecker   = false;
         hasPlantedFruit = false;
-        paused  = false;
-        pauseCanvas.enabled = false;
+        pauseCanvas.gameObject.SetActive(false);
         startCountdown = false;
+        score = 0f;
         gameTimer = 0;
         numberOfFruitTree = 0;
         numberofSuppTree = 0;
         gameStart = false;
-        spawnTime = 5f;                         //debug
+        spawnTime = 5f;                             //debug
         spawnTimer = spawnTime;
         seed = 30f;
         TextUpdate();
@@ -89,9 +88,14 @@ public class GameManager : MonoBehaviour
         Gameplay();
         if (Input.GetKeyDown("escape") || resumeChecker)
         {
-            paused = TogglePause();
+            TogglePause();
             resumeChecker = false;
         }
+    }
+
+    private void LateUpdate()
+    {
+        if (gameStart) CheckLose();
     }
 
     private void Gameplay()
@@ -103,7 +107,7 @@ public class GameManager : MonoBehaviour
             spawnTimer -= Time.deltaTime;
             Spawn();
             TextUpdate();
-            CheckLose();
+            
         }
     }
 
@@ -136,7 +140,7 @@ public class GameManager : MonoBehaviour
         if (startCountdown)
         {
             countdown.SetActive(true);
-            countdownText.text = "Final Countdown:\n" + finalCountdown;
+            countdownText.text = "Final Countdown:\n" + (int)finalCountdown;
         }
         else
         {
@@ -179,19 +183,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private bool TogglePause()
+    private void TogglePause()
     {
         if (Time.timeScale == 1f)
         {
             Time.timeScale = 0f;
-            pauseCanvas.enabled = true;
-            return true;
+            pauseCanvas.gameObject.SetActive(true);
         }
         else
         {
             Time.timeScale = 1f;
-            pauseCanvas.enabled = false;
-            return false;
+            pauseCanvas.gameObject.SetActive(false);
         }
     }
 
@@ -199,7 +201,7 @@ public class GameManager : MonoBehaviour
     {
         if (numberOfFruitTree <= 0)
         {
-            if(numberofSuppTree <= 0 || seed < lowestSeedCost ||finalCountdown <= 0)
+            if(numberofSuppTree <= 0 || seed < lowestSeedCost || finalCountdown <= 0)
             {
                 EndGame();
             }
@@ -213,8 +215,18 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         Time.timeScale = 0;
+        ScoreCalculation();
         gameOver.SetActive(true);
     }
 
-
+    private void ScoreCalculation()
+    {
+        // add the formula to convert time to score (time * value of all planted trees)
+        // need to add tree score values, and value counter
+        if (score > PlayerPrefs.GetInt("score", (int)score))
+        {
+            PlayerPrefs.SetInt("score", (int)score);
+            PlayerPrefs.SetInt("time", (int)gameTimer);
+        }
+    }
 }
