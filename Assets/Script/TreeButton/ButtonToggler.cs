@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpawnTree : MonoBehaviour
+public class ButtonToggler : MonoBehaviour
 {
     /*
     //  Later should change the name because this is not spawning the tree, only toggling the tree button

@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class ChangeButton : MonoBehaviour {
 
-    private SpawnTree spawn;
+    public ButtonToggler toggler;
 
     public void Start()
     {
-        spawn = GameManager.FindObjectOfType<GameManager>().GetComponent<SpawnTree>();  
+        toggler = GameManager.FindObjectOfType<GameManager>().GetComponent<ButtonToggler>();  
     }
 
     public void OnClick()
     {
-        spawn.toggle.GetComponent<Image>().color = Color.white;
-        spawn.toggle = this.gameObject.GetComponent<Button>();
+        toggler.toggle.GetComponent<Image>().color = Color.white;
+        toggler.toggle = this.gameObject.GetComponent<Button>();
     }
 }

@@ -11,27 +11,36 @@ public class GameManager : MonoBehaviour
     public GameObject lumber;                   //To have reference of the lumberjack
     public GameObject tree;                     //To have reference of the tree
     public GameObject gameOver;
+    public GameObject countdown;
 
     public Text scoreText;
     public Text seedText;
     public Text timeText;
-    
+    public Text countdownText;
 
     public Canvas pauseCanvas;
 
     public static bool gameStart;
-    public static bool resumeChecker = false;
-    private bool paused = false;
+    public static bool resumeChecker;
+    public static bool hasPlantedFruit;           //Check if a Fruit Tree has been planted
+    private bool paused;
+    private bool startCountdown;
 
     public static float seed;
     public static float score = 0f;
-    [SerializeField] private float spawnTime;  //Lumberjack spawn time
+    public float lowestSeedCost;                //holds the lowest seed cost for FRUIT Tree
+    [SerializeField] private float spawnTime;   //Lumberjack spawn time
     [SerializeField] private float gameTimer;
+    [SerializeField] private float finalCountdown;
     private float spawnTimer;
+    
+    
 
-    public static int numberOfTrees;    //Counts ALL types of tree
+    public static int numberOfFruitTree;    //Counts Fruit types trees
+    public static int numberofSuppTree;     //Count Supp types trees
+    
     private int checker;        //Holds the random number to determine spawned lumberjack's position
-
+     
 
 
     //Awake is always called before any Start functions
@@ -55,11 +64,19 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //debugging purpose
+        lowestSeedCost = 2f;                    //Orange Tree
+        finalCountdown = 15f;                       //debug
+        countdown.SetActive(false);
+        resumeChecker   = false;
+        hasPlantedFruit = false;
+        paused  = false;
         pauseCanvas.enabled = false;
+        startCountdown = false;
         gameTimer = 0;
-        numberOfTrees = 0;
+        numberOfFruitTree = 0;
+        numberofSuppTree = 0;
         gameStart = false;
-        spawnTime = 5f;                       //debug
+        spawnTime = 5f;                         //debug
         spawnTimer = spawnTime;
         seed = 30f;
         TextUpdate();
@@ -68,6 +85,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (numberOfFruitTree > 0) startCountdown = false;
         Gameplay();
         if (Input.GetKeyDown("escape") || resumeChecker)
         {
@@ -80,14 +98,12 @@ public class GameManager : MonoBehaviour
     {
         if (gameStart)
         {
+            if (startCountdown) finalCountdown -= Time.deltaTime;
             gameTimer += Time.deltaTime;
             spawnTimer -= Time.deltaTime;
             Spawn();
             TextUpdate();
-        }
-        if (gameStart && numberOfTrees == 0)
-        {
-            EndGame();
+            CheckLose();
         }
     }
 
@@ -99,6 +115,7 @@ public class GameManager : MonoBehaviour
         UpdateScore();
         UpdateSeed();
         UpdateTime();
+        UpdateCountdown();
     }
 
     private void UpdateScore()
@@ -114,6 +131,19 @@ public class GameManager : MonoBehaviour
         timeText.text = "Time: " + (int)gameTimer / 60 + ":" + (int)gameTimer % 60; // Minute:Second
 
     }
+    private void UpdateCountdown()
+    {
+        if (startCountdown)
+        {
+            countdown.SetActive(true);
+            countdownText.text = "Final Countdown:\n" + finalCountdown;
+        }
+        else
+        {
+            countdown.SetActive(false);
+        }
+    }
+    
     #endregion
 
     private void SpawnLumberjack(int startLoc)
@@ -149,7 +179,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     private bool TogglePause()
     {
         if (Time.timeScale == 1f)
@@ -163,6 +192,21 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
             pauseCanvas.enabled = false;
             return false;
+        }
+    }
+
+    private void CheckLose()
+    {
+        if (numberOfFruitTree <= 0)
+        {
+            if(numberofSuppTree <= 0 || seed < lowestSeedCost ||finalCountdown <= 0)
+            {
+                EndGame();
+            }
+            else if (hasPlantedFruit)
+            {
+                startCountdown = true;
+            }
         }
     }
 

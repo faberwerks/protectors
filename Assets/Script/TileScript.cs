@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileScript : MonoBehaviour {
+public class TileScript : MonoBehaviour
+{
 
     private TreeProperties properties;
 
@@ -16,14 +17,16 @@ public class TileScript : MonoBehaviour {
     private bool select;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         gameManager = GameManager.FindObjectOfType<GameManager>().gameObject;
         isEmpty = true;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        select = gameManager.GetComponent<SpawnTree>().Select;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        select = gameManager.GetComponent<ButtonToggler>().Select;
     }
 
     private void OnMouseOver()
@@ -31,13 +34,11 @@ public class TileScript : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && select && isEmpty)
         {
             Debug.Log("Plant Tree");
-            select = gameManager.GetComponent<SpawnTree>().Select = false;
-            properties = gameManager.GetComponent<SpawnTree>().toggle.GetComponent<TreeProperties>();
-            tree.GetComponent<Tree>().InitialiseAttribute(properties.health, properties.seedValue, properties.scoreValue, properties.harvestTime,properties.treeTypeNumber);
-            Instantiate(tree, new Vector3(transform.position.x,transform.position.y,-1f), Quaternion.identity);
-            GameManager.seed -= gameManager.GetComponent<SpawnTree>().toggle.GetComponent<TreeProperties>().seedCost; 
-
-            GameManager.numberOfTrees += 1;
+            select = gameManager.GetComponent<ButtonToggler>().Select = false;
+            properties = gameManager.GetComponent<ButtonToggler>().toggle.GetComponent<TreeProperties>();
+            tree.GetComponent<Tree>().InitialiseAttribute(properties.health, properties.seedValue, properties.scoreValue, properties.harvestTime, properties.treeTypeNumber);
+            Instantiate(tree, new Vector3(transform.position.x, transform.position.y, -1f), Quaternion.identity);
+            GameManager.seed -= properties.seedCost;
         }
     }
 
@@ -49,7 +50,7 @@ public class TileScript : MonoBehaviour {
         }
         else
         {
-            isEmpty = true ;
+            isEmpty = true;
         }
     }
 }
