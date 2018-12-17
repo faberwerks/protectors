@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LumberjackController : MonoBehaviour {
+
+    
     
     private GameObject attackedTree;
+
+    [SerializeField]private Animator animator;
     
     [SerializeField] private Vector2 dir;
 
@@ -41,7 +45,7 @@ public class LumberjackController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         FindTree();
-        ChangeColour();
+        SetAnimator();
     }
 
     //Main function of the lumberjack
@@ -172,17 +176,10 @@ public class LumberjackController : MonoBehaviour {
     }
 
     //to change color when it is carrying wood or not (more for debugging at the moment)
-    private void ChangeColour()
+    private void SetAnimator()
     {
-        if (isCarryingWood)
-        {
-            GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
-            
-        }
-        else
-        {
-            GetComponent<Renderer>().material.SetColor("_Color", Color.grey);
-        }
-
+        animator.SetInteger("startDir", startDir);
+        animator.SetBool("isAttacking", isAttacking);
+        animator.SetBool("isCarryingWood", isCarryingWood);
     }
 }
