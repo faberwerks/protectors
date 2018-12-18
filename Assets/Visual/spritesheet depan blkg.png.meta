@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: 994be60c9f7936f489fc566c6967a3a8
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: spritesheet depan blkg_0
+    21300002: spritesheet depan blkg_1
+    21300004: spritesheet depan blkg_2
+    21300006: spritesheet depan blkg_3
+    21300008: spritesheet depan blkg_4
+    21300010: spritesheet depan blkg_5
+    21300012: spritesheet depan blkg_6
+    21300014: spritesheet depan blkg_7
+    21300016: spritesheet depan blkg_8
+    21300018: spritesheet depan blkg_9
+    21300020: spritesheet depan blkg_10
+    21300022: spritesheet depan blkg_11
+    21300024: spritesheet depan blkg_12
+    21300026: spritesheet depan blkg_13
+    21300028: spritesheet depan blkg_14
+    21300030: spritesheet depan blkg_15
+    21300032: spritesheet depan blkg_16
+    21300034: spritesheet depan blkg_17
+    21300036: spritesheet depan blkg_18
+    21300038: spritesheet depan blkg_19
+    21300040: spritesheet depan blkg_20
+    21300042: spritesheet depan blkg_21
+    21300044: spritesheet depan blkg_22
+    21300046: spritesheet depan blkg_23
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -45,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,7 +106,327 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: spritesheet depan blkg_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1248
+        width: 323
+        height: 1092
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc14a77d2fd4d04bb402855a8be877f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_2
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1236
+        width: 326
+        height: 1098
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885a41277e244114f9d5ce451ddfc6df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_3
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 1268
+        width: 322
+        height: 1079
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5023622f972542d4aa83a4eb792d3c94
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_4
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 1237
+        width: 405
+        height: 1138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fbc4608863e72545b0a88bc20148610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_5
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 1224
+        width: 420
+        height: 1144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b661aa4d8c0cd3c49b583b8b6a065cec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_6
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 1249
+        width: 406
+        height: 1124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dde9f87725f3f4499ec4c2b4912f5a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_7
+      rect:
+        serializedVersion: 2
+        x: 2418
+        y: 1239
+        width: 501
+        height: 1170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 840aaa9e8d212594e8bc9c166b36af86
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_9
+      rect:
+        serializedVersion: 2
+        x: 2991
+        y: 1239
+        width: 420
+        height: 1172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc510dacb28d5f4484bba1a36ec3d58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 86
+        width: 364
+        height: 1146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afad5614513d1a5418b1bfb54d63ffa8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_12
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 73
+        width: 357
+        height: 1142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c44152d6266adf4689570f3a5bca63f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_13
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 44
+        width: 355
+        height: 1145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3670842b1558824ca3af7c4d0ee05ee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_15
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 110
+        width: 376
+        height: 1129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c99ccdb3ebff9438054bee23f241b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_16
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 96
+        width: 378
+        height: 1124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a96adb1ef8272940813b06c8e315960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_17
+      rect:
+        serializedVersion: 2
+        x: 2144
+        y: 32
+        width: 376
+        height: 1127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 135506cd3b49f224bb734aaf4802d64e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_18
+      rect:
+        serializedVersion: 2
+        x: 2754
+        y: 41
+        width: 329
+        height: 1183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 161eef6bb08df0f4d8eb2020ff6f1f08
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet depan blkg_19
+      rect:
+        serializedVersion: 2
+        x: 3129
+        y: 41
+        width: 358
+        height: 1186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6731fcc1fa664b42a404481a606428e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
