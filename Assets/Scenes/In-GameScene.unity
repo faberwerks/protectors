@@ -145,8 +145,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.445, y: -51.3}
-  m_SizeDelta: {x: -4.89, y: -52.92}
+  m_AnchoredPosition: {x: 11.65, y: -56.45}
+  m_SizeDelta: {x: 13.52, y: -42.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &34126432
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mango
+  m_Text: Mango (10)
 --- !u!222 &34126433
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -402,7 +402,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Orange
+  m_Text: Orange (3)
 --- !u!222 &99007511
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -477,7 +477,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Maple
+  m_Text: Maple (15)
 --- !u!222 &195876301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -611,8 +611,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3, y: -36.1}
-  m_SizeDelta: {x: -26.87, y: -29.87}
+  m_AnchoredPosition: {x: -9.2, y: -40.1}
+  m_SizeDelta: {x: 28.22, y: -31.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377991799
 MonoBehaviour:
@@ -646,7 +646,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Apple
+  m_Text: Apple (5)
 --- !u!222 &377991800
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1104,8 +1104,12 @@ MonoBehaviour:
   health: 100
   seedCost: 10
   seedValue: 15
-  scoreValue: 100
-  harvestTime: 5
+  scoreValue: 125
+  harvestTime: 8
+  mapleMod: 0
+  mapleTimer: 0
+  healCount: 0
+  healAmount: 0
 --- !u!114 &734828534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1316,7 +1320,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Oak
+  m_Text: Oak (20)
 --- !u!222 &789602525
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1446,10 +1450,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treeTypeNumber: 2
   health: 100
-  seedCost: 2
-  seedValue: 7
+  seedCost: 3
+  seedValue: 5
   scoreValue: 50
   harvestTime: 3
+  mapleMod: 0
+  mapleTimer: 0
+  healCount: 0
+  healAmount: 0
 --- !u!114 &945455696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1632,11 +1640,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4120408510487836, guid: d497992e4fc9c0646a6df17e528eec9c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.67
+      value: 16.2
       objectReference: {fileID: 0}
     - target: {fileID: 4120408510487836, guid: d497992e4fc9c0646a6df17e528eec9c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.6
+      value: -1.33
       objectReference: {fileID: 0}
     - target: {fileID: 4120408510487836, guid: d497992e4fc9c0646a6df17e528eec9c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1857,6 +1865,10 @@ MonoBehaviour:
   seedValue: 0
   scoreValue: 0
   harvestTime: 0
+  mapleMod: 0
+  mapleTimer: 0
+  healCount: 80
+  healAmount: 20
 --- !u!114 &1115680733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2097,7 +2109,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Grape
+  m_Text: Grape (20)
 --- !u!222 &1208292814
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2402,10 +2414,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treeTypeNumber: 5
   health: 100
-  seedCost: 20
+  seedCost: 15
   seedValue: 0
   scoreValue: 0
   harvestTime: 0
+  mapleMod: 25
+  mapleTimer: 45
+  healCount: 0
+  healAmount: 0
 --- !u!114 &1645546574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2589,10 +2605,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treeTypeNumber: 3
   health: 400
-  seedCost: 25
+  seedCost: 20
   seedValue: 0
   scoreValue: 0
   harvestTime: 0
+  mapleMod: 0
+  mapleTimer: 0
+  healCount: 0
+  healAmount: 0
 --- !u!114 &1705854506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3105,7 +3125,11 @@ MonoBehaviour:
   seedCost: 5
   seedValue: 10
   scoreValue: 100
-  harvestTime: 7
+  harvestTime: 6
+  mapleMod: 0
+  mapleTimer: 0
+  healCount: 0
+  healAmount: 0
 --- !u!114 &2009753841
 MonoBehaviour:
   m_ObjectHideFlags: 0
