@@ -45,3 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Grid
+    uniqueID: 4127091075
+    locked: 0
+  - name: Lumberjack
+    uniqueID: 958654651
+    locked: 0
+  - name: Tree
+    uniqueID: 2882276785
+    locked: 0

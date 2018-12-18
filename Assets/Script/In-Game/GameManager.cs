@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject lumber;                   //To have reference of the lumberjack
     public GameObject tree;                     //To have reference of the tree
-    public GameObject gameOver;
     public GameObject countdown;
 
     public Text scoreText;
@@ -19,10 +18,11 @@ public class GameManager : MonoBehaviour
     public Text countdownText;
 
     public Canvas pauseCanvas;
+    public Canvas gameOverCanvas;
 
     public static bool gameStart;
-    public static bool resumeChecker;
-    public static bool hasPlantedFruit;           //Check if a Fruit Tree has been planted
+    public static bool pauseChecker;                //to trigger pause
+    public static bool hasPlantedFruit;             //Check if a Fruit Tree has been planted
     private bool startCountdown;
 
     public static float seed;
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         lowestSeedCost = 2f;                        //Orange Tree
         finalCountdown = 15f;                       //debug
         countdown.SetActive(false);
-        resumeChecker   = false;
+        pauseChecker   = false;
         hasPlantedFruit = false;
         pauseCanvas.gameObject.SetActive(false);
         startCountdown = false;
@@ -86,10 +86,10 @@ public class GameManager : MonoBehaviour
     {
         if (numberOfFruitTree > 0) startCountdown = false;
         Gameplay();
-        if (Input.GetKeyDown("escape") || resumeChecker)
+        if (Input.GetKeyDown("escape") || pauseChecker)
         {
             TogglePause();
-            resumeChecker = false;
+            pauseChecker = false;
         }
     }
 
@@ -216,7 +216,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         ScoreCalculation();
-        gameOver.SetActive(true);
+        gameOverCanvas.gameObject.SetActive(true);
     }
 
     private void ScoreCalculation()

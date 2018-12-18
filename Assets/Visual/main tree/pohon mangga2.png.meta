@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 8234a53a3734a994eabefbe5e05c9459
+guid: 5aac3e876a6c900428acb262516c4b9f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: pohon jeruk_0
-    21300002: pohon jeruk_1
-    21300004: pohon jeruk_2
-    21300006: pohon jeruk_3
+    21300000: pohon mangga2_0
+    21300002: pohon mangga2_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -49,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1700
+  spritePixelsToUnits: 1300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -88,41 +86,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pohon jeruk_0
+      name: pohon mangga2_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 265
-        width: 1609
-        height: 2058
+        x: 86
+        y: 716
+        width: 1416
+        height: 1400
       alignment: 9
-      pivot: {x: 0.5, y: 0.43}
-      border: {x: 0, y: 6, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6930f55b04cc1954bbf27b7e67ed7a79
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pohon jeruk_1
-      rect:
-        serializedVersion: 2
-        x: 1720
-        y: 255
-        width: 1634
-        height: 2047
-      alignment: 9
-      pivot: {x: 0.5, y: 0.43}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1725bbfddd96ff043b4f38b7a0d9ac90
+      spriteID: 83c127ca21711cd43bf5f36066596a3c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pohon mangga2_1
+      rect:
+        serializedVersion: 2
+        x: 1529
+        y: 723
+        width: 1488
+        height: 1402
+      alignment: 9
+      pivot: {x: 0.45, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eadecfb7b103f5469ff11f9a08a6996
       vertices: []
       indices: 
       edges: []
@@ -130,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ce60f51fc43c0af408fafd9fe8172220
+    spriteID: 4d4f754db0276994ba76c5727cfc868d
     vertices: []
     indices: 
     edges: []

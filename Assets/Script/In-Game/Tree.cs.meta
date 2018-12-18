@@ -6,8 +6,8 @@ MonoImporter:
   defaultReferences:
   - appleTree: {fileID: 21300000, guid: 2209a96ca6e468345a2054914ede0f12, type: 3}
   - appleTreeHarvest: {fileID: 21300002, guid: 2209a96ca6e468345a2054914ede0f12, type: 3}
-  - mangoTree: {fileID: 21300000, guid: 0cf1b675d9d0a054ab1d0d666e09ab98, type: 3}
-  - mangoTreeHarvest: {fileID: 21300002, guid: 0cf1b675d9d0a054ab1d0d666e09ab98, type: 3}
+  - mangoTree: {fileID: 21300000, guid: 5aac3e876a6c900428acb262516c4b9f, type: 3}
+  - mangoTreeHarvest: {fileID: 21300002, guid: 5aac3e876a6c900428acb262516c4b9f, type: 3}
   - orangeTree: {fileID: 21300000, guid: 8234a53a3734a994eabefbe5e05c9459, type: 3}
   - orangeTreeHarvest: {fileID: 21300002, guid: 8234a53a3734a994eabefbe5e05c9459,
       type: 3}

@@ -270,7 +270,7 @@ public class Tree : MonoBehaviour
                         var affectedTree = hitInfo.transform.gameObject.GetComponent<Tree>();
                         affectedTree.isEffectedByMaple = false;
                         affectedTree.harvestTime = affectedTree.oriHarvestTime;
-                        Debug.Log("deactive");
+                        //Debug.Log("deactive");
                     }
                 }
             }
