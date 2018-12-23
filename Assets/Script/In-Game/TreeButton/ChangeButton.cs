@@ -14,7 +14,11 @@ public class ChangeButton : MonoBehaviour {
 
     public void OnClick()
     {
-        toggler.toggle.GetComponent<Image>().color = Color.white;
-        toggler.toggle = this.gameObject.GetComponent<Button>();
+        if (GameManager.seed >= this.GetComponent<TreeProperties>().seedCost)
+        {
+            toggler.toggle.GetComponent<Image>().color = Color.white;
+            toggler.toggle = this.gameObject.GetComponent<Button>();
+            toggler.Select = true;
+        }
     }
 }

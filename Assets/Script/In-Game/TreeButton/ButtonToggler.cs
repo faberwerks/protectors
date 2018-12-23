@@ -21,9 +21,6 @@ public class ButtonToggler : MonoBehaviour
 
     private void Update()
     {
-        toggle.onClick.AddListener(ChangeSelect); //Command that calls a function when the toggle button is clicked
-
-
         if(Select)
             toggle.GetComponent<Image>().color = Color.red; //Tree place mode
         else
@@ -32,15 +29,15 @@ public class ButtonToggler : MonoBehaviour
     }
 
     //Changing the state of "Select" according to the button press.
-    void ChangeSelect()
-    {
-        if (!Select && GameManager.seed >= toggle.GetComponent<TreeProperties>().seedCost)
-        {
-            Select = true;
-        }
-        else
-        {
-            Select = false;
-        }
-    }
+    //void ChangeSelect()
+    //{
+    //    if (!Select && GameManager.seed >= toggle.GetComponent<TreeProperties>().seedCost)
+    //    {
+    //        Select = true;
+    //    }
+    //    else
+    //    {
+    //        Select = false;
+    //    }
+    //}
 }
