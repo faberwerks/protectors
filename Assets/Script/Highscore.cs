@@ -10,8 +10,9 @@ public class Highscore : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        highscoreUI.text = "Highscore: " + PlayerPrefs.GetInt("highscore", 0).ToString();
-        int time = PlayerPrefs.GetInt("highscore", 0);
+        int highscore = PlayerPrefs.GetInt("score", 0);
+        highscoreUI.text = "Highscore: " + highscore.ToString();
+        int time = PlayerPrefs.GetInt("time", 0);
         timeUI.text = "Time: " + time / 60 + ":" + time % 60;
 
     }

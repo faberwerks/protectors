@@ -223,7 +223,7 @@ public class GameManager : MonoBehaviour
     {
         // add the formula to convert time to score (time * value of all planted trees)
         // need to add tree score values, and value counter
-        if (score > PlayerPrefs.GetInt("score", (int)score))
+        if (score > PlayerPrefs.GetInt("score",0))
         {
             PlayerPrefs.SetInt("score", (int)score);
             PlayerPrefs.SetInt("time", (int)gameTimer);
