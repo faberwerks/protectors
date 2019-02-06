@@ -31,7 +31,7 @@ public class TileScript : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && select && isEmpty)
+        if (Input.GetMouseButtonDown(0) && select && isEmpty && Time.timeScale == 1f)
         {
             select = gameManager.GetComponent<ButtonToggler>().Select = false;
             properties = gameManager.GetComponent<ButtonToggler>().toggle.GetComponent<TreeProperties>();

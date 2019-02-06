@@ -20,10 +20,10 @@ public class GameManager : MonoBehaviour
     public Canvas pauseCanvas;
     public Canvas gameOverCanvas;
 
-    public static bool gameStart;
-    public static bool pauseChecker;                //to trigger pause
+    public static bool gameStart;                   //Game's state (start after the first tree planted)
+    public static bool pauseChecker;                //To trigger pause
     public static bool hasPlantedFruit;             //Check if a Fruit Tree has been planted
-    private bool startCountdown;
+    private bool startCountdown;                    //
 
     public static float seed;
     public static float score;
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
         spawnTime = 5f;                             //debug
         spawnTimer = spawnTime;
         seed = 30f;
+        Time.timeScale = 1f;
         TextUpdate();
     }
 
