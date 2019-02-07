@@ -10,7 +10,7 @@ public class GridMaker : MonoBehaviour {
 
     [SerializeField] private int xLength = 17;
     [SerializeField] private int yLength = 12;
-    private int size = 2;
+    private int size = 4;
 
     // Use this for initialization
     void Start () {
