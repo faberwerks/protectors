@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LumberjackController : MonoBehaviour {
 
-    
-    
+
+    public GameObject Grid;
     private GameObject attackedTree;
 
-    [SerializeField]private Animator animator;
+    [SerializeField]public Animator animator;
     
     [SerializeField] private Vector2 dir;
 
@@ -94,6 +94,13 @@ public class LumberjackController : MonoBehaviour {
     private void SetRandomPosition()
     {
         int randomPos = 0;
+        Vector3 grid = Grid.transform.position;
+        float gridSize = Grid.GetComponent<GridMaker>().size;
+        float startRandX = (grid.x + gridSize * 2f);
+        float startRandY = (grid.y - gridSize * 2f);
+        float startX = (grid.x);
+        float startY = (grid.y);
+
         if (startDir == 1 || startDir == 3)
         {
             randomPos = Random.Range(0, 13);
@@ -105,17 +112,17 @@ public class LumberjackController : MonoBehaviour {
         switch (startDir)//Sets position according to a random range. Depends on the start point as well (up or down)
         {
             case 1:
-                transform.position = new Vector2(-13f + (randomPos * 2) ,11f);
+                transform.position = new Vector2( startRandX + (randomPos * gridSize ) ,startY);
                 break;
 
             case 2:
-                transform.position = new Vector2(15f , 7f - (randomPos * 2));
+                transform.position = new Vector2(startX + gridSize * 16, startRandY - (randomPos * gridSize));
                 break;
             case 3:
-                transform.position = new Vector2(-13f + (randomPos * 2), -11f);
+                transform.position = new Vector2(startRandX + (randomPos * gridSize), startY-gridSize*11);
                 break;
             case 4:
-                transform.position = new Vector2(-17f, 7f - (randomPos * 2));
+                transform.position = new Vector2(startX, startRandY - (randomPos * gridSize));
                 break;
         }
         

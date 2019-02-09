@@ -20,8 +20,8 @@ TagManager:
   - Tree
   - Lumberjack
   - SupportTree
-  - Buttons
-  - Logo
+  - 
+  - 
   - 
   - 
   - 
@@ -42,8 +42,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Border
+    uniqueID: 1385424377
+    locked: 0
+  - name: Background
+    uniqueID: 1163029899
     locked: 0
   - name: Grid
     uniqueID: 4127091075
@@ -53,4 +56,7 @@ TagManager:
     locked: 0
   - name: Tree
     uniqueID: 2882276785
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
