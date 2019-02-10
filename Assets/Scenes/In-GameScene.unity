@@ -425,7 +425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &189251646
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -459,7 +459,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1163029899
-  m_SortingLayer: -4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bdec58e02b6e7c74da20d7eadc16f61d, type: 3}
   m_Color: {r: 0.40161088, g: 0.67610484, b: 0.8962264, a: 1}
@@ -3408,6 +3408,11 @@ Prefab:
     - target: {fileID: 4290170772988168, guid: 8dfaa6383e9b8854abc9edb6d1f2ae36, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922753173325330, guid: 8dfaa6383e9b8854abc9edb6d1f2ae36,
+        type: 2}
+      propertyPath: size
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dfaa6383e9b8854abc9edb6d1f2ae36, type: 2}

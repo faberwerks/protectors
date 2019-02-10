@@ -43,12 +43,9 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Border
-    uniqueID: 1385424377
+    uniqueID: 3155533811
     locked: 0
-  - name: Background
-    uniqueID: 1163029899
-    locked: 0
-  - name: Grid
+  - name: Land
     uniqueID: 4127091075
     locked: 0
   - name: Lumberjack
@@ -56,6 +53,18 @@ TagManager:
     locked: 0
   - name: Tree
     uniqueID: 2882276785
+    locked: 0
+  - name: LumberjackGoingUp
+    uniqueID: 174548987
+    locked: 0
+  - name: Cover
+    uniqueID: 246415869
+    locked: 0
+  - name: UI
+    uniqueID: 2598993815
+    locked: 0
+  - name: Frame
+    uniqueID: 1762551009
     locked: 0
   - name: Default
     uniqueID: 0

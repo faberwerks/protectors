@@ -120,6 +120,7 @@ public class LumberjackController : MonoBehaviour {
                 break;
             case 3:
                 transform.position = new Vector2(startRandX + (randomPos * gridSize), startY-gridSize*11);
+                GetComponent<SpriteRenderer>().sortingLayerName = "LumberjackGoingUp";
                 break;
             case 4:
                 transform.position = new Vector2(startX, startRandY - (randomPos * gridSize));

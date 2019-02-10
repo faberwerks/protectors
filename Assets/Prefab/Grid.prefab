@@ -56,4 +56,4 @@ MonoBehaviour:
   pavement: {fileID: 1226983681962816, guid: 055290f599211ba4b857e79333725bf1, type: 2}
   xLength: 17
   yLength: 12
-  size: 6
+  size: 5
