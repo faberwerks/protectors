@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LumberjackController : MonoBehaviour {
 
-    
+    public AudioClip attackClip;
     
     private GameObject attackedTree;
 
@@ -161,6 +161,7 @@ public class LumberjackController : MonoBehaviour {
         {
             stamina -= 10;
             attackedTree.GetComponent<Tree>().health -= damage;
+            GetComponent<AudioSource>().PlayOneShot(attackClip);
         }
         else if (stamina <= 0 || attackedTree == null)
         {

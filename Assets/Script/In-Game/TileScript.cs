@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TileScript : MonoBehaviour
 {
+    public AudioClip plantClip;
 
     private TreeProperties properties;
 
@@ -41,6 +42,9 @@ public class TileScript : MonoBehaviour
             Instantiate(tree, new Vector3(transform.position.x, transform.position.y, -1f), 
                 Quaternion.identity);
             GameManager.seed -= properties.seedCost;
+
+            // play plant clip
+            GetComponent<AudioSource>().PlayOneShot(plantClip);
         }
     }
 

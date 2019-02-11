@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public AudioClip loseClip;
 
     public static GameManager instance = null;  //Static instance of GameManager which allows it to be accessed by any other script.
 
@@ -216,6 +217,7 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         Time.timeScale = 0;
+        GetComponent<AudioSource>().PlayOneShot(loseClip);
         ScoreCalculation();
         gameOverCanvas.gameObject.SetActive(true);
     }
