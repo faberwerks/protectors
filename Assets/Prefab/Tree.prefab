@@ -37,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 1553454343549860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -89,13 +89,13 @@ MonoBehaviour:
   mapleTree: {fileID: 21300000, guid: 11e9b1c30687aba409819ed62c63e713, type: 3}
   grapeTree: {fileID: 21300000, guid: 2d713bfc561781041a536645e999718f, type: 3}
   isEffectedByMaple: 0
-  treeTypeNumber: 2
+  treeTypeNumber: 0
   maxHealth: 0
   health: 100
-  seedValue: 5
-  scoreValue: 50
+  seedValue: 10
+  scoreValue: 100
   oriHarvestTime: 0
-  harvestTime: 3
+  harvestTime: 6
   harvestTimer: 0
   mapleMod: 0
   mapleTimer: 0
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1412690511
-  m_SortingLayer: 5
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300008, guid: c339c99ab339bd24c8eaa4d4e7720db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
