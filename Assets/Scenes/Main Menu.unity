@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 2082062939}
+  canvas: {fileID: 2082062939}
 --- !u!114 &1213715087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 1429454935}
+  canvas: {fileID: 1429454935}
 --- !u!114 &1787750746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1845,7 +1845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 1429454935}
+  canvas: {fileID: 0}
 --- !u!114 &1873637168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2126,7 +2126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 2082062939}
+  canvas: {fileID: 0}
 --- !u!114 &2076736217
 MonoBehaviour:
   m_ObjectHideFlags: 0

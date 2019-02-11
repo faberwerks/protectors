@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HighScoreButton : MonoBehaviour {
+public class Button : MonoBehaviour {
 
-    public Canvas highscoreCanvas;
+    public Canvas canvas;
     [SerializeField]private static bool isOpen = false;
 
 	
@@ -18,12 +18,12 @@ public class HighScoreButton : MonoBehaviour {
     {
         if(!isOpen)
         {
-            highscoreCanvas.gameObject.SetActive(true);
+           canvas.gameObject.SetActive(true);
             isOpen = true;
         }
         else if(isOpen) 
         {
-            highscoreCanvas.gameObject.SetActive(false);
+            canvas.gameObject.SetActive(false);
             isOpen = false;
         }
     }
