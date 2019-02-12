@@ -57,6 +57,9 @@ TagManager:
   - name: Border
     uniqueID: 1385424377
     locked: 0
+  - name: Frame
+    uniqueID: 127131977
+    locked: 0
   - name: UI
     uniqueID: 3164613261
     locked: 0
