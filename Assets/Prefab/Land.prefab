@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec6c70d3f8c57946b2c44176cf5122f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantClip: {fileID: 8300000, guid: a51d7d62c30e9f74c8bb0728f6443132, type: 3}
+  plantClip: {fileID: 8300000, guid: 40e6d4a21f4e1c345bf37bda74d234be, type: 3}
   tree: {fileID: 1553454343549860, guid: f496ed5136ad51743a37dc5f10291067, type: 2}
   gameManager: {fileID: 1797735930212534, guid: 481855b836a95d8408cb829e04d4270d,
     type: 2}
