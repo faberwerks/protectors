@@ -570,7 +570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163.3, y: 52.8}
+  m_AnchoredPosition: {x: 172, y: 0.0000038147}
   m_SizeDelta: {x: 1055, y: 750.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &502074353
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06522187, g: 0.4056604, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -593,23 +593,23 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4bd5f65f6d5512848930c6f9996e3ee0, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "How To Play:\n- Click the Tree to plant it\n- There are 2 types of trees:\n
-    \      -Fruit Trees that can be harvested \n       when clicked\n       -Support
-    Trees that have different \n       effects\nFruit Trees: Apple, Mango, Orange\nSupport
-    Trees:\nOak: High Defense\nGrape: Heals immediate surroundings\nMaple: Quickens
-    harvest time of surroundings\n"
+    \  - Fruit Trees that can be harvested \n     when clicked\n    - Support Trees
+    that have different \n      effects\nFruit Trees: Apple, Mango, Orange\nSupport
+    Trees:\n- Oak: High defense\n- Grape: Heals surrounding trees\n- Maple: Quickens
+    harvest time of surrounding trees"
 --- !u!222 &502074354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2759,7 +2759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2082062937
 MonoBehaviour:
   m_ObjectHideFlags: 0
