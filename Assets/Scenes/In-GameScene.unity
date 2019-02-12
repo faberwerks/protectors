@@ -481,7 +481,7 @@ Transform:
   m_GameObject: {fileID: 189251645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -950,11 +950,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 533308537}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5, y: 253, z: 0}
   m_LocalScale: {x: 1.0625, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1421527484}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &577102502
@@ -2534,7 +2534,7 @@ RectTransform:
   m_GameObject: {fileID: 1421527480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.85009, z: 1}
   m_Children:
   - {fileID: 1674093227}
   - {fileID: 631020800}
@@ -2544,12 +2544,13 @@ RectTransform:
   - {fileID: 1705854504}
   - {fileID: 1115680731}
   - {fileID: 1645546572}
+  - {fileID: 533308539}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -2, y: 55}
   m_SizeDelta: {x: 1280, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1518578056
@@ -3530,11 +3531,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4290170772988168, guid: 8dfaa6383e9b8854abc9edb6d1f2ae36, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -400
+      value: -490
       objectReference: {fileID: 0}
     - target: {fileID: 4290170772988168, guid: 8dfaa6383e9b8854abc9edb6d1f2ae36, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 167
+      value: 237
       objectReference: {fileID: 0}
     - target: {fileID: 4290170772988168, guid: 8dfaa6383e9b8854abc9edb6d1f2ae36, type: 2}
       propertyPath: m_LocalPosition.z
