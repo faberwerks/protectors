@@ -184,7 +184,7 @@ MonoBehaviour:
   oakTree: {fileID: 21300000, guid: 0901179279b1ec64c9fe5f0e4d6337ec, type: 3}
   mapleTree: {fileID: 21300000, guid: 11e9b1c30687aba409819ed62c63e713, type: 3}
   grapeTree: {fileID: 21300000, guid: 2d713bfc561781041a536645e999718f, type: 3}
-  harvestableClip: {fileID: 8300000, guid: be6195d30f7f14648a36683c6562b22a, type: 3}
+  harvestedClip: {fileID: 8300000, guid: be6195d30f7f14648a36683c6562b22a, type: 3}
   isEffectedByMaple: 0
   treeTypeNumber: 2
   maxHealth: 0

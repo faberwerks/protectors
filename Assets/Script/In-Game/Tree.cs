@@ -16,7 +16,7 @@ public class Tree : MonoBehaviour
     public Sprite mapleTree;
     public Sprite grapeTree;
 
-    public AudioClip harvestableClip;
+    public AudioClip harvestedClip;
 
     public bool isEffectedByMaple = false;
     protected bool harvestable = false;                     //to check whether the tree is harvestable or not
@@ -165,9 +165,6 @@ public class Tree : MonoBehaviour
                 {
                     GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.black);
                 }
-
-                // play harvestable clip
-                GetComponent<AudioSource>().PlayOneShot(harvestableClip);
             }
         }
     }
@@ -194,6 +191,9 @@ public class Tree : MonoBehaviour
 
             GameManager.score += scoreValue;
             GameManager.seed += seedValue;
+
+            //play harvested clip
+            GetComponent<AudioSource>().PlayOneShot(harvestedClip);
 
             if (treeTypeNumber == 0)
             {
