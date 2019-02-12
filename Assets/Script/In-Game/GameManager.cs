@@ -220,6 +220,7 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
+        score += (int)gameTimer * 10;
         Time.timeScale = 0;
         GetComponent<AudioSource>().PlayOneShot(loseClip);
         ScoreCalculation();
@@ -232,7 +233,7 @@ public class GameManager : MonoBehaviour
         // need to add tree score values, and value counter
         if ((score+gameTimer*10) > PlayerPrefs.GetInt("score",0))
         {
-            score += gameTimer * 10;
+            
             PlayerPrefs.SetInt("score", (int)score);
             PlayerPrefs.SetInt("time", (int)gameTimer);
         }
