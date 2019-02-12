@@ -42,9 +42,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Border
-    uniqueID: 1385424377
-    locked: 0
   - name: Background
     uniqueID: 1163029899
     locked: 0
@@ -56,6 +53,12 @@ TagManager:
     locked: 0
   - name: Tree
     uniqueID: 2882276785
+    locked: 0
+  - name: Border
+    uniqueID: 1385424377
+    locked: 0
+  - name: UI
+    uniqueID: 3164613261
     locked: 0
   - name: Default
     uniqueID: 0
