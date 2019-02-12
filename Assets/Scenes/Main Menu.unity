@@ -359,8 +359,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37, y: -97}
-  m_SizeDelta: {x: 1095, y: 691.5}
+  m_AnchoredPosition: {x: 28.1, y: -29}
+  m_SizeDelta: {x: 1126.8, y: 870.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &502074353
 MonoBehaviour:
@@ -397,7 +397,8 @@ MonoBehaviour:
   m_Text: "How To Play:\n- Click the Tree to plant it\n- There are 2 types of trees:\n
     \      -Fruit Trees that can be harvested \n       when clicked\n       -Support
     Trees that have different \n       effects\nFruit Trees: Apple, Manggo, Orange\nSupport
-    Trees: Oak, Grape, Maple "
+    Trees: \nOak: High Health. Use for Defense\nGrape: Heals Surroundings\nMaple:
+    Quickens harvest time "
 --- !u!222 &502074354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -430,7 +431,7 @@ RectTransform:
   m_GameObject: {fileID: 618083306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.535, y: 0.535, z: 0.535}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.535}
   m_Children:
   - {fileID: 1873637164}
   - {fileID: 502074352}
@@ -1763,7 +1764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -390, y: 338}
+  m_AnchoredPosition: {x: 421, y: 310.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1873637165
@@ -1845,7 +1846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+  canvas: {fileID: 1429454935}
 --- !u!114 &1873637168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2126,7 +2127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+  canvas: {fileID: 2082062939}
 --- !u!114 &2076736217
 MonoBehaviour:
   m_ObjectHideFlags: 0
