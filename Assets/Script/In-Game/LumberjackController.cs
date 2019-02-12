@@ -29,6 +29,7 @@ public class LumberjackController : MonoBehaviour {
     private bool isAttacking;
     private bool isCarryingWood;
     private bool isWalkingToTree;
+    private bool firstAttackSound;  //To trigger the "Chop" sound effect once when start hitting trees
 
     // Use this for initialization
     void Start () {
@@ -38,6 +39,7 @@ public class LumberjackController : MonoBehaviour {
         isCarryingWood = false;
         isAttacking = false;
         isWalkingToTree = false;
+        firstAttackSound = true;
         stamina = 100;
         damage = 5f;
         SetRandomPosition();
@@ -84,6 +86,11 @@ public class LumberjackController : MonoBehaviour {
             }
             else
             {
+                if (firstAttackSound)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(attackClip);
+                    firstAttackSound = false;
+                }
                 Invoke("Attack", 0.5f);
             }
         }
@@ -160,6 +167,7 @@ public class LumberjackController : MonoBehaviour {
             dir *= isCarryingWood ?  -1 : 1;
             isCarryingWood = false;
             isWalkingToTree = false;
+            firstAttackSound = true;
             SetRandomPosition();
             searchCooldownTimer = searchCooldownTime;
         }
@@ -172,7 +180,7 @@ public class LumberjackController : MonoBehaviour {
         {
             stamina -= 10;
             attackedTree.GetComponent<Tree>().health -= damage;
-            GetComponent<AudioSource>().PlayOneShot(attackClip);
+           
         }
         else if (stamina <= 0 || attackedTree == null)
         {

@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Grid: {fileID: 1745433840055118, guid: 8dfaa6383e9b8854abc9edb6d1f2ae36, type: 2}
-  attackClip: {fileID: 8300000, guid: 62ad801426057f94db09125c39433548, type: 3}
+  attackClip: {fileID: 8300000, guid: 185c1ad0a2c4b1a40a2f5316fa54558f, type: 3}
   animator: {fileID: 95826946575224628}
   dir: {x: 0, y: 0}
   speed: 20
