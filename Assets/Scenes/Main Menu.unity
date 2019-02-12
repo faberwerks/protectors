@@ -570,8 +570,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.7, y: -22.4}
-  m_SizeDelta: {x: 1329.5, y: 542.3}
+  m_AnchoredPosition: {x: 163.3, y: 52.8}
+  m_SizeDelta: {x: 1055, y: 750.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &502074353
 MonoBehaviour:
@@ -607,8 +607,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "How To Play:\n- Click the Tree to plant it\n- There are 2 types of trees:\n
     \      -Fruit Trees that can be harvested \n       when clicked\n       -Support
-    Trees that have different \n       effects\nFruit Trees: Apple, Manggo, Orange\nSupport
-    Trees: Oak, Grape, Maple "
+    Trees that have different \n       effects\nFruit Trees: Apple, Mango, Orange\nSupport
+    Trees:\nOak: High Defense\nGrape: Heals immediate surroundings\nMaple: Quickens
+    harvest time of surroundings\n"
 --- !u!222 &502074354
 CanvasRenderer:
   m_ObjectHideFlags: 0
