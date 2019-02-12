@@ -203,7 +203,11 @@ public class GameManager : MonoBehaviour
     {
         if (numberOfFruitTree <= 0)
         {
-            if(numberofSuppTree <= 0 || seed < lowestSeedCost || finalCountdown <= 0)
+            if ((numberofSuppTree <= 0 || seed < lowestSeedCost || finalCountdown <= 0) && Time.timeScale == 0f)
+            {
+
+            }
+            else if(numberofSuppTree <= 0 || seed < lowestSeedCost || finalCountdown <= 0)
             {
                 EndGame();
             }

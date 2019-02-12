@@ -13,6 +13,7 @@ public class LumberjackController : MonoBehaviour {
     [SerializeField]public Animator animator;
 
     [SerializeField] private Vector2 dir;
+    [SerializeField] private int speed;
 
     private int startDir;
     private int treeLayer;
@@ -133,7 +134,7 @@ public class LumberjackController : MonoBehaviour {
     // just read :)
     private void Move()
     {
-        transform.Translate(dir * Time.deltaTime*15);
+        transform.Translate(dir * Time.deltaTime*speed);
     }
 
     //Sets an initial
