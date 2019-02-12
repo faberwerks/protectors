@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class LumberjackController : MonoBehaviour {
 
+
+    public GameObject Grid;
     public AudioClip attackClip;
-    
+
     private GameObject attackedTree;
 
-    [SerializeField]private Animator animator;
-    
+    [SerializeField]public Animator animator;
+
     [SerializeField] private Vector2 dir;
 
     private int startDir;
     private int treeLayer;
     private int treeLayer2;
 
-    public float stamina; 
+    public float stamina;
     public float damage;
     private float searchCooldownTime; //How long the Lumberjack idles in the spawn area
     private float searchCooldownTimer; //The actual countdown
 
     private bool hit;
     private bool hit2;
-    private bool isAttacking; 
+    private bool isAttacking;
     private bool isCarryingWood;
     private bool isWalkingToTree;
 
@@ -41,7 +43,7 @@ public class LumberjackController : MonoBehaviour {
         treeLayer = LayerMask.GetMask("Tree");
         treeLayer2 = LayerMask.GetMask("SupportTree");
     }
-     
+
 	// Update is called once per frame
 	void Update () {
         FindTree();
@@ -67,7 +69,7 @@ public class LumberjackController : MonoBehaviour {
                     }
                     else if (!hit && isWalkingToTree)   //When lumberjack lost his target, but already start moving
                     {                                   //It keeps moving until it hits border
-                        Move();                         
+                        Move();
                     }
                     else                                //When doesn't hit any tree, keeps looking
                     {
@@ -90,10 +92,17 @@ public class LumberjackController : MonoBehaviour {
         }
     }
 
-    //to spawn randomly 
+    //to spawn randomly
     private void SetRandomPosition()
     {
         int randomPos = 0;
+        Vector3 grid = Grid.transform.position;
+        float gridSize = Grid.GetComponent<GridMaker>().size;
+        float startRandX = (grid.x + gridSize * 2f);
+        float startRandY = (grid.y - gridSize * 2f);
+        float startX = (grid.x);
+        float startY = (grid.y);
+
         if (startDir == 1 || startDir == 3)
         {
             randomPos = Random.Range(0, 13);
@@ -105,20 +114,20 @@ public class LumberjackController : MonoBehaviour {
         switch (startDir)//Sets position according to a random range. Depends on the start point as well (up or down)
         {
             case 1:
-                transform.position = new Vector2(-13f + (randomPos * 2) ,11f);
+                transform.position = new Vector2( startRandX + (randomPos * gridSize ) ,startY);
                 break;
 
             case 2:
-                transform.position = new Vector2(15f , 7f - (randomPos * 2));
+                transform.position = new Vector2(startX + gridSize * 16, startRandY - (randomPos * gridSize));
                 break;
             case 3:
-                transform.position = new Vector2(-13f + (randomPos * 2), -11f);
+                transform.position = new Vector2(startRandX + (randomPos * gridSize), startY-gridSize*11);
                 break;
             case 4:
-                transform.position = new Vector2(-17f, 7f - (randomPos * 2));
+                transform.position = new Vector2(startX, startRandY - (randomPos * gridSize));
                 break;
         }
-        
+
     }
 
     // just read :)
@@ -127,14 +136,14 @@ public class LumberjackController : MonoBehaviour {
         transform.Translate(dir * Time.deltaTime);
     }
 
-    //Sets an initial 
+    //Sets an initial
      public void InitialiseDir(Vector2 dir/*Speed according to direction*/, int startDir /*Origin Position*/)
     {
         this.startDir = startDir;
         this.dir = dir;
         SetRandomPosition();
     }
-    
+
     //what the lumberjack do when collide with something
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -171,7 +180,7 @@ public class LumberjackController : MonoBehaviour {
             isAttacking = false;
             isCarryingWood = true;
         }
-        
+
 
         CancelInvoke(); //To cancel the attack command so that the lumberjack does not continue attacking.
     }
