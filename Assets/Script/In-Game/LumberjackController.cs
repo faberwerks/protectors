@@ -133,7 +133,7 @@ public class LumberjackController : MonoBehaviour {
     // just read :)
     private void Move()
     {
-        transform.Translate(dir * Time.deltaTime);
+        transform.Translate(dir * Time.deltaTime*15);
     }
 
     //Sets an initial
