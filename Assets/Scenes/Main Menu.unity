@@ -1640,7 +1640,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\r\nThis game uses many sounds from freesound.org.\r\nFor the full list,
-    see \n\r\nMusic by Eric Matyas\r\n\r\nwww.soundimage.org"
+    see http://bit.ly/protectors_credits.\n\r\nMusic by Eric Matyas\r\n\r\nwww.soundimage.org"
 --- !u!222 &929847008
 CanvasRenderer:
   m_ObjectHideFlags: 0
