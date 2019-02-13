@@ -1543,8 +1543,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -153.54996, y: -61.44998}
-  m_SizeDelta: {x: 307.1, y: 586.7}
+  m_AnchoredPosition: {x: -143.1, y: -61.44998}
+  m_SizeDelta: {x: 327.9, y: 586.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &898642660
 MonoBehaviour:
@@ -1582,7 +1582,7 @@ MonoBehaviour:
 
     Cost: 20 seeds
 
-    Heals surrounding trees'
+    Heals surrounding harvest and oak trees'
 --- !u!222 &898642661
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2615,7 +2615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1358404650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2880,7 +2880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1429454933
 MonoBehaviour:
   m_ObjectHideFlags: 0
