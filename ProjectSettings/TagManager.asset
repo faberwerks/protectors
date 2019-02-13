@@ -54,6 +54,9 @@ TagManager:
   - name: Tree
     uniqueID: 2882276785
     locked: 0
+  - name: LumberjackUP
+    uniqueID: 2095896411
+    locked: 0
   - name: Border
     uniqueID: 1385424377
     locked: 0
