@@ -22,7 +22,7 @@ public class InGameMusic : MonoBehaviour {
         }
         if(musicOneEnd)
         {
-            music1.volume /= 1.2f;
+            music1.volume /= 1.1f;
 
                 musicTwoUsed = true;
         }
