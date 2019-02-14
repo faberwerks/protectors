@@ -11,6 +11,7 @@ public class TileScript : MonoBehaviour
     private bool isEmpty;
 
     [SerializeField] private GameObject tree;
+    private GameObject treeInLand;
     public GameObject gameManager;
 
     public Vector3 targetPoint;
@@ -28,6 +29,10 @@ public class TileScript : MonoBehaviour
     void Update()
     {
         select = gameManager.GetComponent<ButtonToggler>().Select;
+        if(treeInLand == null)
+        {
+            isEmpty = true;
+        }
     }
 
     private void OnMouseOver()
@@ -43,20 +48,13 @@ public class TileScript : MonoBehaviour
                 Quaternion.identity);
             GameManager.seed -= properties.seedCost;
 
+            treeInLand = Physics2D.Raycast(transform.position, Vector2.up,0.3f).transform.gameObject;
             // play plant clip
             GetComponent<AudioSource>().PlayOneShot(plantClip);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Tree")
-        {
             isEmpty = false;
         }
-        else
-        {
-            isEmpty = true;
-        }
     }
+        
+    
+  
 }
