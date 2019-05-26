@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class TreeProperties:MonoBehaviour {
+public class TreeProperties : MonoBehaviour
+{
     public int treeTypeNumber;
     public float health;
     public float seedCost;

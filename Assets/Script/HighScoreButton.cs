@@ -1,27 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-public class HighScoreButton : MonoBehaviour {
+public class HighScoreButton : MonoBehaviour
+{
 
     public Canvas highscoreCanvas;
-    [SerializeField]private static bool isOpen = false;
+    [SerializeField] private static bool isOpen = false;
 
-	
-	
-	public void OnClick () {
-           Toggle();
+
+
+    public void OnClick()
+    {
+        Toggle();
     }
 
     private void Toggle()
     {
-        if(!isOpen)
+        if (!isOpen)
         {
             highscoreCanvas.gameObject.SetActive(true);
             isOpen = true;
         }
-        else if(isOpen) 
+        else if (isOpen)
         {
             highscoreCanvas.gameObject.SetActive(false);
             isOpen = false;

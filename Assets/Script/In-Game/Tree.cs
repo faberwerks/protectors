@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
@@ -36,7 +34,7 @@ public class Tree : MonoBehaviour
     [SerializeField] private float healCount;        //grape tree healing amount
     [SerializeField] private float healAmount;       //the value grape tree gives every heal 
 
-    
+
 
 
     // Use this for initialization
@@ -68,7 +66,7 @@ public class Tree : MonoBehaviour
     //check the health of the Tree
     protected void CheckHealth()
     {
-        if(mapleTimer > 0)
+        if (mapleTimer > 0)
         {
             mapleTimer -= Time.deltaTime;
             if (mapleTimer <= 0) Destroy(gameObject);
@@ -231,7 +229,7 @@ public class Tree : MonoBehaviour
                     if ((x != 0 || y != 0) && hitInfo.transform.gameObject.GetComponent<Tree>().health < hitInfo.transform.gameObject.GetComponent<Tree>().maxHealth)
                     {
                         hitInfo.transform.gameObject.GetComponent<Tree>().health += healAmount;
-                        healCount-=1;
+                        healCount -= 1;
                     }
                     if (healCount <= 0) Destroy(gameObject);
                 }
@@ -281,8 +279,8 @@ public class Tree : MonoBehaviour
         }
     }
 
-    public void InitialiseAttribute(float health, float seedValue, float scoreValue, 
-        float harvestTime, int treeTypeNumber, float mapleMod, float mapleTimer, 
+    public void InitialiseAttribute(float health, float seedValue, float scoreValue,
+        float harvestTime, int treeTypeNumber, float mapleMod, float mapleTimer,
         float healCount, float healAmount)
     {
         this.treeTypeNumber = treeTypeNumber;
@@ -296,4 +294,4 @@ public class Tree : MonoBehaviour
         this.healAmount = healAmount;
     }
 }
-    
+

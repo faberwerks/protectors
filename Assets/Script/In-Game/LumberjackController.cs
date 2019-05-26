@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class LumberjackController : MonoBehaviour {
+public class LumberjackController : MonoBehaviour
+{
 
 
     public GameObject Grid;
@@ -10,7 +9,7 @@ public class LumberjackController : MonoBehaviour {
 
     private GameObject attackedTree;
 
-    [SerializeField]public Animator animator;
+    [SerializeField] public Animator animator;
 
     [SerializeField] private Vector2 dir;
     [SerializeField] private int speed;
@@ -32,7 +31,8 @@ public class LumberjackController : MonoBehaviour {
     private bool firstAttackSound;  //To trigger the "Chop" sound effect once when start hitting trees
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         //InitializeDir();
         searchCooldownTime = 2f;
         searchCooldownTimer = searchCooldownTime;
@@ -47,8 +47,9 @@ public class LumberjackController : MonoBehaviour {
         treeLayer2 = LayerMask.GetMask("SupportTree");
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         FindTree();
         SetAnimator();
     }
@@ -122,7 +123,7 @@ public class LumberjackController : MonoBehaviour {
         switch (startDir)//Sets position according to a random range. Depends on the start point as well (up or down)
         {
             case 1:
-                transform.position = new Vector2( startRandX + (randomPos * gridSize ) ,startY);
+                transform.position = new Vector2(startRandX + (randomPos * gridSize), startY);
                 break;
 
             case 2:
@@ -130,7 +131,7 @@ public class LumberjackController : MonoBehaviour {
                 break;
             case 3:
                 gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "LumberjackUp";
-                transform.position = new Vector2(startRandX + (randomPos * gridSize), startY-gridSize*11);
+                transform.position = new Vector2(startRandX + (randomPos * gridSize), startY - gridSize * 11);
                 break;
             case 4:
                 transform.position = new Vector2(startX, startRandY - (randomPos * gridSize));
@@ -142,11 +143,11 @@ public class LumberjackController : MonoBehaviour {
     // just read :)
     private void Move()
     {
-        transform.Translate(dir * Time.deltaTime*speed);
+        transform.Translate(dir * Time.deltaTime * speed);
     }
 
     //Sets an initial
-     public void InitialiseDir(Vector2 dir/*Speed according to direction*/, int startDir /*Origin Position*/)
+    public void InitialiseDir(Vector2 dir/*Speed according to direction*/, int startDir /*Origin Position*/)
     {
         this.startDir = startDir;
         this.dir = dir;
@@ -158,13 +159,13 @@ public class LumberjackController : MonoBehaviour {
     {
         if (collision.tag == "Tree" && !isCarryingWood)
         {
-            attackedTree = (GameObject) collision.gameObject;
+            attackedTree = (GameObject)collision.gameObject;
             isAttacking = true;
         }
         if (collision.tag == "Border" && (isCarryingWood || isWalkingToTree))
         {
             stamina = 100;
-            dir *= isCarryingWood ?  -1 : 1;
+            dir *= isCarryingWood ? -1 : 1;
             isCarryingWood = false;
             isWalkingToTree = false;
             firstAttackSound = true;
@@ -180,7 +181,7 @@ public class LumberjackController : MonoBehaviour {
         {
             stamina -= 10;
             attackedTree.GetComponent<Tree>().health -= damage;
-           
+
         }
         else if (stamina <= 0 || attackedTree == null)
         {

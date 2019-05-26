@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TileScript : MonoBehaviour
 {
@@ -29,7 +27,7 @@ public class TileScript : MonoBehaviour
     void Update()
     {
         select = gameManager.GetComponent<ButtonToggler>().Select;
-        if(treeInLand == null)
+        if (treeInLand == null)
         {
             isEmpty = true;
         }
@@ -41,20 +39,20 @@ public class TileScript : MonoBehaviour
         {
             select = gameManager.GetComponent<ButtonToggler>().Select = false;
             properties = gameManager.GetComponent<ButtonToggler>().toggle.GetComponent<TreeProperties>();
-            tree.GetComponent<Tree>().InitialiseAttribute(properties.health, properties.seedValue, 
-                properties.scoreValue, properties.harvestTime, properties.treeTypeNumber, 
-                properties.mapleMod, properties.mapleTimer,properties.healCount,properties.healAmount);
-            Instantiate(tree, new Vector3(transform.position.x, transform.position.y, -1f), 
+            tree.GetComponent<Tree>().InitialiseAttribute(properties.health, properties.seedValue,
+                properties.scoreValue, properties.harvestTime, properties.treeTypeNumber,
+                properties.mapleMod, properties.mapleTimer, properties.healCount, properties.healAmount);
+            Instantiate(tree, new Vector3(transform.position.x, transform.position.y, -1f),
                 Quaternion.identity);
             GameManager.seed -= properties.seedCost;
 
-            treeInLand = Physics2D.Raycast(transform.position, Vector2.up,0.3f).transform.gameObject;
+            treeInLand = Physics2D.Raycast(transform.position, Vector2.up, 0.3f).transform.gameObject;
             // play plant clip
             GetComponent<AudioSource>().PlayOneShot(plantClip);
             isEmpty = false;
         }
     }
-        
-    
-  
+
+
+
 }

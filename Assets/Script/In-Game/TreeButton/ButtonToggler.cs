@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonToggler : MonoBehaviour
@@ -21,7 +19,7 @@ public class ButtonToggler : MonoBehaviour
 
     private void Update()
     {
-        if(Select)
+        if (Select)
             toggle.GetComponent<Image>().color = Color.red; //Tree place mode
         else
             toggle.GetComponent<Image>().color = Color.white; //Can't place tree

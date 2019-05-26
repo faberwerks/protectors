@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -33,14 +31,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float gameTimer;
     [SerializeField] private float finalCountdown;
     private float spawnTimer;
-    
-    
+
+
 
     public static int numberOfFruitTree;    //Counts Fruit types trees
     public static int numberofSuppTree;     //Count Supp types trees
-    
+
     private int checker;        //Holds the random number to determine spawned lumberjack's position
-     
+
 
 
     //Awake is always called before any Start functions
@@ -67,7 +65,7 @@ public class GameManager : MonoBehaviour
         lowestSeedCost = 2f;                        //Orange Tree
         finalCountdown = 15f;                       //debug
         countdown.SetActive(false);
-        pauseChecker   = false;
+        pauseChecker = false;
         hasPlantedFruit = false;
         pauseCanvas.gameObject.SetActive(false);
         startCountdown = false;
@@ -109,7 +107,7 @@ public class GameManager : MonoBehaviour
             spawnTimer -= Time.deltaTime;
             Spawn();
             TextUpdate();
-            
+
         }
     }
 
@@ -149,7 +147,7 @@ public class GameManager : MonoBehaviour
             countdown.SetActive(false);
         }
     }
-    
+
     #endregion
 
     private void SpawnLumberjack(int startLoc)
@@ -207,7 +205,7 @@ public class GameManager : MonoBehaviour
             {
 
             }
-            else if(numberofSuppTree <= 0 || seed < lowestSeedCost || finalCountdown <= 0)
+            else if (numberofSuppTree <= 0 || seed < lowestSeedCost || finalCountdown <= 0)
             {
                 EndGame();
             }
@@ -231,9 +229,9 @@ public class GameManager : MonoBehaviour
     {
         // add the formula to convert time to score (time * value of all planted trees)
         // need to add tree score values, and value counter
-        if ((score+gameTimer*10) > PlayerPrefs.GetInt("score",0))
+        if ((score + gameTimer * 10) > PlayerPrefs.GetInt("score", 0))
         {
-            
+
             PlayerPrefs.SetInt("score", (int)score);
             PlayerPrefs.SetInt("time", (int)gameTimer);
         }

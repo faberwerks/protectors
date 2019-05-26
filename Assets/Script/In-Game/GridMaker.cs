@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GridMaker : MonoBehaviour {
+public class GridMaker : MonoBehaviour
+{
 
     public GameObject tile;
     public GameObject border;
@@ -13,23 +12,24 @@ public class GridMaker : MonoBehaviour {
     [SerializeField] public int size = 6;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         CreateTile();
-	}
+    }
 
     private void CreateTile()
     {
         int yCurr, xCurr;
         int xPos = (int)transform.position.x;
         int yPos = (int)transform.position.y;
-        
+
 
         for (xPos = (int)transform.position.x, xCurr = 0; xCurr < xLength; xPos += size, xCurr += 1)
         {
-            for (yPos = (int)transform.position.y, yCurr = 0; yCurr < yLength; yPos -= size, yCurr +=1)
+            for (yPos = (int)transform.position.y, yCurr = 0; yCurr < yLength; yPos -= size, yCurr += 1)
             {
                 var tilePos = new Vector2(xPos, yPos);
-                if (xCurr == 0 || yCurr == 0 || xCurr == xLength-1|| yCurr == yLength-1)
+                if (xCurr == 0 || yCurr == 0 || xCurr == xLength - 1 || yCurr == yLength - 1)
                 {
                     Instantiate(border, tilePos, Quaternion.identity, this.gameObject.transform);
                 }
