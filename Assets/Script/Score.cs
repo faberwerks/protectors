@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Score : MonoBehaviour {
 
-    [SerializeField] Text score;
+    [SerializeField] TextMeshProUGUI score;
 	// Use this for initialization
 	void Start () {
 		

@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Highscore : MonoBehaviour {
 
-    public Text highscoreUI;
-    public Text timeUI;
+    public TextMeshProUGUI highscoreUI;
+    public TextMeshProUGUI timeUI;
 
 	// Update is called once per frame
 	void Update () {
