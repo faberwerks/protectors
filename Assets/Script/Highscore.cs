@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class Highscore : MonoBehaviour
 {
 
-    public Text highscoreUI;
-    public Text timeUI;
+    public TextMeshProUGUI highscoreUI;
+    public TextMeshProUGUI timeUI;
 
     // Update is called once per frame
     void Update()

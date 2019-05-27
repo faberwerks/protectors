@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,11 +11,11 @@ public class GameManager : MonoBehaviour
     public GameObject lumber;                   //To have reference of the lumberjack
     public GameObject tree;                     //To have reference of the tree
     public GameObject countdown;
-
-    public Text scoreText;
-    public Text seedText;
-    public Text timeText;
-    public Text countdownText;
+    
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI seedText;
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI countdownText;
 
     public Canvas pauseCanvas;
     public Canvas gameOverCanvas;
