@@ -1,19 +1,16 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Highscore : MonoBehaviour
 {
+    public TMP_Text highscoreText;
+    public TMP_Text timeText;
 
-    public Text highscoreUI;
-    public Text timeUI;
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
         int highscore = PlayerPrefs.GetInt("score", 0);
-        highscoreUI.text = "Highscore: " + highscore.ToString();
+        highscoreText.text = "Highscore: " + highscore.ToString();
         int time = PlayerPrefs.GetInt("time", 0);
-        timeUI.text = "Time: " + time / 60 + ":" + time % 60;
-
+        timeText.text = "Time: " + time / 60 + ":" + time % 60;
     }
 }
