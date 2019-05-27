@@ -185,7 +185,7 @@ public class LumberjackController : MonoBehaviour {
         if (stamina > 0 && attackedTree != null) //Attacks if stamina is more than 0
         {
             stamina -= 10;
-            attackedTree.GetComponent<Tree>().health -= damage;
+            attackedTree.GetComponent<TreeHandler>().health -= damage;
         }
         else if (stamina <= 0 || attackedTree == null)
         {

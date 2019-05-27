@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+public class TreeHandler : MonoBehaviour
 {
 
     public enum TreeType : byte { FRUIT, SUPPORT }; //enum for the 2 tree types
@@ -17,6 +17,8 @@ public class Tree : MonoBehaviour
     public Sprite grapeTree;
 
     public AudioClip harvestedClip;
+    private AudioSource audioSource;
+    private SpriteRenderer spriteRenderer;
 
     public bool isEffectedByMaple = false;
     protected bool harvestable = false;                     //to check whether the tree is harvestable or not
@@ -42,6 +44,8 @@ public class Tree : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         oriHarvestTime = harvestTime;
         maxHealth = health;
         GameManager.gameStart = true;
@@ -62,17 +66,20 @@ public class Tree : MonoBehaviour
                 TreeEffect();
                 break;
         }
-        CheckHealth();
+        if(mapleTimer > 0)
+        {
+            mapleTimer -= Time.deltaTime;
+            if (mapleTimer <= 0) health = 0;
+        }
+        if (health <= 0)
+        {
+            CheckHealth();
+        }
     }
 
     //check the health of the Tree
     protected void CheckHealth()
     {
-        if(mapleTimer > 0)
-        {
-            mapleTimer -= Time.deltaTime;
-            if (mapleTimer <= 0) Destroy(gameObject);
-        }
 
         if (health <= 0)    //when health reaches 0, destroy the tree
         {
@@ -98,19 +105,19 @@ public class Tree : MonoBehaviour
         {
             if (treeTypeNumber == 0)
             {
-                this.GetComponent<SpriteRenderer>().sprite = appleTree;
+                spriteRenderer.sprite = appleTree;
             }
             else if (treeTypeNumber == 1)
             {
-                this.GetComponent<SpriteRenderer>().sprite = mangoTree;
+                spriteRenderer.sprite = mangoTree;
             }
             else if (treeTypeNumber == 2)
             {
-                this.GetComponent<SpriteRenderer>().sprite = orangeTree;
+                spriteRenderer.sprite = orangeTree;
             }
             else if (treeTypeNumber == 3)
             {
-                this.GetComponent<SpriteRenderer>().sprite = oakTree;
+                spriteRenderer.sprite = oakTree;
                 GameManager.numberofSuppTree += 1;
                 return TreeType.SUPPORT;
             }
@@ -123,11 +130,11 @@ public class Tree : MonoBehaviour
         {
             if (treeTypeNumber == 4)
             {
-                this.GetComponent<SpriteRenderer>().sprite = grapeTree;
+                spriteRenderer.sprite = grapeTree;
             }
             else if (treeTypeNumber == 5)
             {
-                this.GetComponent<SpriteRenderer>().sprite = mapleTree;
+                spriteRenderer.sprite = mapleTree;
             }
             GameManager.numberofSuppTree += 1;
             gameObject.layer = 10;
@@ -151,19 +158,19 @@ public class Tree : MonoBehaviour
 
                 if (treeTypeNumber == 0)
                 {
-                    this.GetComponent<SpriteRenderer>().sprite = appleTreeHarvest;
+                    spriteRenderer.sprite = appleTreeHarvest;
                 }
                 else if (treeTypeNumber == 1)
                 {
-                    this.GetComponent<SpriteRenderer>().sprite = mangoTreeHarvest;
+                    spriteRenderer.sprite = mangoTreeHarvest;
                 }
                 else if (treeTypeNumber == 2)
                 {
-                    this.GetComponent<SpriteRenderer>().sprite = orangeTreeHarvest;
+                    spriteRenderer.sprite = orangeTreeHarvest;
                 }
                 else
                 {
-                    GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.black);
+                    spriteRenderer.material.SetColor("_Color", Color.black);
                 }
             }
         }
@@ -193,19 +200,19 @@ public class Tree : MonoBehaviour
             GameManager.seed += seedValue;
 
             //play harvested clip
-            GetComponent<AudioSource>().PlayOneShot(harvestedClip);
+            audioSource.PlayOneShot(harvestedClip);
 
             if (treeTypeNumber == 0)
             {
-                this.GetComponent<SpriteRenderer>().sprite = appleTree;
+                spriteRenderer.sprite = appleTree;
             }
             else if (treeTypeNumber == 1)
             {
-                this.GetComponent<SpriteRenderer>().sprite = mangoTree;
+                spriteRenderer.sprite = mangoTree;
             }
             else if (treeTypeNumber == 2)
             {
-                this.GetComponent<SpriteRenderer>().sprite = orangeTree;
+                spriteRenderer.sprite = orangeTree;
             }
             //Debug.Log("Score: " + GameManager.score);
             //Debug.Log("Seed: " + GameManager.seed);
@@ -228,9 +235,9 @@ public class Tree : MonoBehaviour
                 RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 2f, LayerMask.GetMask("Tree"));
                 if (hitInfo)
                 {
-                    if ((x != 0 || y != 0) && hitInfo.transform.gameObject.GetComponent<Tree>().health < hitInfo.transform.gameObject.GetComponent<Tree>().maxHealth)
+                    if ((x != 0 || y != 0) && hitInfo.transform.gameObject.GetComponent<TreeHandler>().health < hitInfo.transform.gameObject.GetComponent<TreeHandler>().maxHealth)
                     {
-                        hitInfo.transform.gameObject.GetComponent<Tree>().health += healAmount;
+                        hitInfo.transform.gameObject.GetComponent<TreeHandler>().health += healAmount;
                         healCount-=1;
                     }
                     if (healCount <= 0) Destroy(gameObject);
@@ -249,9 +256,9 @@ public class Tree : MonoBehaviour
                 RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 2f, LayerMask.GetMask("Tree"));
                 if (hitInfo)
                 {
-                    if ((x != 0 || y != 0) && !hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple)
+                    if ((x != 0 || y != 0) && !hitInfo.transform.gameObject.GetComponent<TreeHandler>().isEffectedByMaple)
                     {
-                        var affectedTree = hitInfo.transform.gameObject.GetComponent<Tree>();
+                        var affectedTree = hitInfo.transform.gameObject.GetComponent<TreeHandler>();
                         affectedTree.isEffectedByMaple = true;
                         affectedTree.harvestTime *= ((100 - mapleMod) / 100);
                     }
@@ -269,9 +276,9 @@ public class Tree : MonoBehaviour
                 RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 2f, LayerMask.GetMask("Tree"));
                 if (hitInfo)
                 {
-                    if ((x != 0 || y != 0) && hitInfo.transform.gameObject.GetComponent<Tree>().isEffectedByMaple)
+                    if ((x != 0 || y != 0) && hitInfo.transform.gameObject.GetComponent<TreeHandler>().isEffectedByMaple)
                     {
-                        var affectedTree = hitInfo.transform.gameObject.GetComponent<Tree>();
+                        var affectedTree = hitInfo.transform.gameObject.GetComponent<TreeHandler>();
                         affectedTree.isEffectedByMaple = false;
                         affectedTree.harvestTime = affectedTree.oriHarvestTime;
                         //Debug.Log("deactive");
