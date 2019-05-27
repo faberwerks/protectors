@@ -10,10 +10,12 @@ public class LumberjackController : MonoBehaviour {
 
     private GameObject attackedTree;
 
-    [SerializeField]public Animator animator;
+    private Animator animator;
 
     [SerializeField] private Vector2 dir;
     [SerializeField] private int speed;
+
+    private Vector3 grid;
 
     private int startDir;
     private int treeLayer;
@@ -23,6 +25,7 @@ public class LumberjackController : MonoBehaviour {
     public float damage;
     private float searchCooldownTime; //How long the Lumberjack idles in the spawn area
     private float searchCooldownTimer; //The actual countdown
+    private float gridSize;
 
     private bool hit;
     private bool hit2;
@@ -32,8 +35,11 @@ public class LumberjackController : MonoBehaviour {
     private bool firstAttackSound;  //To trigger the "Chop" sound effect once when start hitting trees
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         //InitializeDir();
+        animator = gameObject.GetComponent<Animator>();
+        grid = Grid.transform.position;
+        gridSize = Grid.GetComponent<GridMaker>().size;
         searchCooldownTime = 2f;
         searchCooldownTimer = searchCooldownTime;
         isCarryingWood = false;
@@ -43,69 +49,68 @@ public class LumberjackController : MonoBehaviour {
         stamina = 100;
         damage = 5f;
         SetRandomPosition();
+        SetAnimator();
         treeLayer = LayerMask.GetMask("Tree");
         treeLayer2 = LayerMask.GetMask("SupportTree");
     }
 
-	// Update is called once per frame
-	void Update () {
-        FindTree();
-        SetAnimator();
+    // Update is called once per frame
+    void Update() {
+        if (searchCooldownTimer <= 0)
+        {
+            FindTree();
+        }
+        searchCooldownTimer -= Time.deltaTime;
     }
 
     //Main function of the lumberjack
     private void FindTree()
     {
         //Cooldown of the lumberjack before it attack again
-        if (searchCooldownTimer <= 0)
+
+        if (!isAttacking)
         {
-            if (!isAttacking)
+            if (!isCarryingWood)
             {
-                if (!isCarryingWood)
+                hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer);
+                hit2 = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer2);
+                if (hit || hit2)                            //When lumberjack is seeing a Tree in its vision
                 {
-                    hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer);
-                    hit2 = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, treeLayer2);
-                    if (hit || hit2)                            //When lumberjack is seeing a Tree in its vision
-                    {
-                        isWalkingToTree = true;
-                        Move();
-                    }
-                    else if (!hit && isWalkingToTree)   //When lumberjack lost his target, but already start moving
-                    {                                   //It keeps moving until it hits border
-                        Move();
-                    }
-                    else                                //When doesn't hit any tree, keeps looking
-                    {
-                        SetRandomPosition();
-                    }
-                }
-                else
-                {
+                    isWalkingToTree = true;
                     Move();
+                }
+                else if (!hit && isWalkingToTree)   //When lumberjack lost his target, but already start moving
+                {                                   //It keeps moving until it hits border
+                    Move();
+                }
+                else                                //When doesn't hit any tree, keeps looking
+                {
+                    SetRandomPosition();
+                    SetAnimator();
                 }
             }
             else
             {
-                if (firstAttackSound)
-                {
-                    GetComponent<AudioSource>().PlayOneShot(attackClip);
-                    firstAttackSound = false;
-                }
-                Invoke("Attack", 0.5f);
+                Move();
             }
         }
         else
         {
-            searchCooldownTimer -= Time.deltaTime;
+            if (firstAttackSound)
+            {
+                GetComponent<AudioSource>().PlayOneShot(attackClip);
+                firstAttackSound = false;
+            }
+            Invoke("Attack", 0.5f);
         }
     }
+
+    
 
     //to spawn randomly
     private void SetRandomPosition()
     {
         int randomPos = 0;
-        Vector3 grid = Grid.transform.position;
-        float gridSize = Grid.GetComponent<GridMaker>().size;
         float startRandX = (grid.x + gridSize * 2f);
         float startRandY = (grid.y - gridSize * 2f);
         float startX = (grid.x);
@@ -136,7 +141,6 @@ public class LumberjackController : MonoBehaviour {
                 transform.position = new Vector2(startX, startRandY - (randomPos * gridSize));
                 break;
         }
-
     }
 
     // just read :)
@@ -156,12 +160,13 @@ public class LumberjackController : MonoBehaviour {
     //what the lumberjack do when collide with something
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Tree" && !isCarryingWood)
+        if (collision.CompareTag("Tree") && !isCarryingWood)
         {
             attackedTree = (GameObject) collision.gameObject;
             isAttacking = true;
+            SetAnimator();
         }
-        if (collision.tag == "Border" && (isCarryingWood || isWalkingToTree))
+        if (collision.CompareTag("Border") && (isCarryingWood || isWalkingToTree))
         {
             stamina = 100;
             dir *= isCarryingWood ?  -1 : 1;
@@ -170,6 +175,7 @@ public class LumberjackController : MonoBehaviour {
             firstAttackSound = true;
             SetRandomPosition();
             searchCooldownTimer = searchCooldownTime;
+            SetAnimator();
         }
     }
 
@@ -180,7 +186,6 @@ public class LumberjackController : MonoBehaviour {
         {
             stamina -= 10;
             attackedTree.GetComponent<Tree>().health -= damage;
-           
         }
         else if (stamina <= 0 || attackedTree == null)
         {
@@ -189,6 +194,7 @@ public class LumberjackController : MonoBehaviour {
             dir *= -1;
             isAttacking = false;
             isCarryingWood = true;
+            SetAnimator();
         }
 
 

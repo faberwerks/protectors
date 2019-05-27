@@ -216,7 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grid: {fileID: 1745433840055118, guid: 8dfaa6383e9b8854abc9edb6d1f2ae36, type: 2}
   attackClip: {fileID: 8300000, guid: 185c1ad0a2c4b1a40a2f5316fa54558f, type: 3}
-  animator: {fileID: 95826946575224628}
   dir: {x: 0, y: 0}
   speed: 20
   stamina: 0
@@ -254,7 +253,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 958654651
-  m_SortingLayer: -5
+  m_SortingLayer: -6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fcbea58e063aea44991b25455ce8744a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
