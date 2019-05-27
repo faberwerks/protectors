@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 
-public class HighScoreButton : MonoBehaviour
+public class HighscoreButton : MonoBehaviour
 {
 
     public Canvas highscoreCanvas;
-    [SerializeField] private static bool isOpen = false;
-
-
+    private bool isOpen = false;
 
     public void OnClick()
     {
