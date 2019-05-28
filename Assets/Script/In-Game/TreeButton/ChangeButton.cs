@@ -6,14 +6,14 @@ public class ChangeButton : MonoBehaviour
 
     public ButtonToggler toggler;
 
-    private Image image;
+    //private Image image;
     private Button button;
 
     public void Start()
     {
         toggler = GameManager.FindObjectOfType<GameManager>().GetComponent<ButtonToggler>();
 
-        image = toggler.toggle.GetComponent<Image>();
+        //image = toggler.toggle.GetComponent<Image>();
 
         button = this.gameObject.GetComponent<Button>();
     }
@@ -22,9 +22,10 @@ public class ChangeButton : MonoBehaviour
     {
         if (GameManager.seed >= this.GetComponent<TreeProperties>().seedCost)
         {
-            image.color = Color.white;
+            //image.color = Color.white;
             toggler.toggle = button;
             toggler.Select = true;
+            //image = toggler.toggle.GetComponent<Image>();
         }
     }
 }

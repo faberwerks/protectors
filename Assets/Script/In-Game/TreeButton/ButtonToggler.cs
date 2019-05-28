@@ -25,12 +25,12 @@ public class ButtonToggler : MonoBehaviour
     {
         if (Select)
         {
-            image.color = Color.white;
-            image = toggle.GetComponent<Image>();
-            image.color = Color.red; //Tree place mode
+            image.color = Color.white;              //change previous button's color back to white
+            image = toggle.GetComponent<Image>();   //put reference of the latest selected button to image attribute
+            image.color = Color.red;                //Tree place mode; set the button color to red
         }
         else
-            image.color = Color.white; //Can't place tree
+            image.color = Color.white;              //Can't place tree
 
     }
 
