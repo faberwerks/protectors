@@ -11,5 +11,6 @@ public class TreeProperties : MonoBehaviour
     public float mapleMod;          //maple tree effect's percentage value 
     public float mapleTimer;        //maple tree's timer
     public float healCount;         //grape tree healing amount
-    public float healAmount;        //the value grape tree gives every heal       
+    public float healAmount;        //the value grape tree gives every heal    
+    public float cooldown;          //cooldown that the tree has after being planted
 }
