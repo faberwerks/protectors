@@ -50,6 +50,9 @@ public class TileScript : MonoBehaviour
             // play plant clip
             GetComponent<AudioSource>().PlayOneShot(plantClip);
             isEmpty = false;
+
+            //Sets planted tree's button on cooldown
+            gameManager.GetComponent<ButtonToggler>().toggle.GetComponent<TreeCooldownHandler>().SetCooldownTimer();
         }
     }
 
