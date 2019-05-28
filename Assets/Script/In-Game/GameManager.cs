@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public static int numberOfFruitTree;    //Counts Fruit types trees
     public static int numberofSuppTree;     //Count Supp types trees
 
+    [SerializeField] private int startSeed;
     private int checker;        //Holds the random number to determine spawned lumberjack's position
 
 
@@ -62,8 +63,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //debugging purpose
-        lowestSeedCost = 2f;                        //Orange Tree
-        finalCountdown = 15f;                       //debug
+        //lowestSeedCost = 4f;                        //Orange Tree
+        //finalCountdown = 15f;                       //debug
         countdown.SetActive(false);
         pauseChecker = false;
         hasPlantedFruit = false;
@@ -74,9 +75,9 @@ public class GameManager : MonoBehaviour
         numberOfFruitTree = 0;
         numberofSuppTree = 0;
         gameStart = false;
-        spawnTime = 5f;                             //debug
+        //spawnTime = 6f;                             //lumberjack spawntime
         spawnTimer = spawnTime;
-        seed = 30f;
+        seed = startSeed;
         Time.timeScale = 1f;
         TextUpdate();
     }
