@@ -39,9 +39,9 @@ public class TileScript : MonoBehaviour
         {
             select = gameManager.GetComponent<ButtonToggler>().Select = false;
             properties = gameManager.GetComponent<ButtonToggler>().toggle.GetComponent<TreeProperties>();
-            tree.GetComponent<Tree>().InitialiseAttribute(properties.health, properties.seedValue,
+            tree.GetComponent<TreeHandler>().InitialiseAttribute(properties.health, properties.seedValue,
                 properties.scoreValue, properties.harvestTime, properties.treeTypeNumber,
-                properties.mapleMod, properties.mapleTimer, properties.healCount, properties.healAmount);
+                properties.mapleMod, properties.mapleTimer,properties.healCount,properties.healAmount);
             Instantiate(tree, new Vector3(transform.position.x, transform.position.y, -1f),
                 Quaternion.identity);
             GameManager.seed -= properties.seedCost;
