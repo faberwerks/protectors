@@ -12,17 +12,21 @@ public class ButtonToggler : MonoBehaviour
 
     public bool Select { get; set; }    //Select variable. used if player Selects a tree to place.
 
+    private Image image;
+
     private void Start()
     {
         Select = false;
+
+        image = toggle.GetComponent<Image>();
     }
 
     private void Update()
     {
         if (Select)
-            toggle.GetComponent<Image>().color = Color.red; //Tree place mode
+            image.color = Color.red; //Tree place mode
         else
-            toggle.GetComponent<Image>().color = Color.white; //Can't place tree
+            image.color = Color.white; //Can't place tree
 
     }
 

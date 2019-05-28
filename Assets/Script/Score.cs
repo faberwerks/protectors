@@ -4,11 +4,7 @@ using TMPro;
 public class Score : MonoBehaviour
 {
 
-    [SerializeField] TextMeshProUGUI score;
-	// Use this for initialization
-	void Start () {
-
-	}
+    public TextMeshProUGUI score;
 
 	// Update is called once per frame
 	void Update () {
