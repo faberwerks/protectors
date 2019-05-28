@@ -2,34 +2,29 @@
 
 public class InGameMusic : MonoBehaviour
 {
+    public AudioSource preStartAudioSource;
+    public AudioSource postStartAudioSource;
 
-    [SerializeField] private AudioSource music1;
-    [SerializeField] private GameObject music2;
-
-    private bool musicOneEnd = false;
-    private bool musicTwoUsed = false;
-    // Use this for initialization
-    void Start()
-    {
-
-    }
+    private bool hasStarted = false;
+    private bool postStartBGMHasStarted = false;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (GameManager.gameStart)
+        if (GameManager.gameStart && !hasStarted)
         {
-            musicOneEnd = true;
+            hasStarted = true;
         }
-        if (musicOneEnd)
+        if (hasStarted)
         {
-            music1.volume /= 1.1f;
+            preStartAudioSource.volume /= 1.1f;
 
-            musicTwoUsed = true;
+            if (!postStartBGMHasStarted)
+            {
+                postStartAudioSource.Play();
+                postStartBGMHasStarted = true;
+            }
         }
-        if (musicTwoUsed)
-        {
-            music2.SetActive(true);
-        }
+
     }
 }
