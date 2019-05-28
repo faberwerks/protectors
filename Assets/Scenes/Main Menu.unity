@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 57497057}
   - component: {fileID: 57497056}
   - component: {fileID: 57497059}
+  - component: {fileID: 57497055}
   m_Layer: 0
   m_Name: Credits
   m_TagString: Untagged
@@ -214,6 +215,17 @@ RectTransform:
   m_AnchoredPosition: {x: 187, y: -159}
   m_SizeDelta: {x: 320, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &57497055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 57497053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d5e0158b703c142a17ac8828aeb980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &57497056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,13 +265,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 604344528}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 57497055}
+        m_MethodName: LoadByIndex
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -1070,7 +1082,6 @@ GameObject:
   - component: {fileID: 557504807}
   - component: {fileID: 557504806}
   - component: {fileID: 557504805}
-  - component: {fileID: 557504804}
   - component: {fileID: 557504803}
   m_Layer: 5
   m_Name: Next
@@ -1174,17 +1185,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &557504804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 557504802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &557504805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2609,7 +2609,6 @@ GameObject:
   - component: {fileID: 1213367597}
   - component: {fileID: 1213367596}
   - component: {fileID: 1213367595}
-  - component: {fileID: 1213367594}
   - component: {fileID: 1213367593}
   m_Layer: 5
   m_Name: Back to Faberwerks
@@ -2732,17 +2731,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1213367594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1213367591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1213367595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7199,7 +7187,6 @@ GameObject:
   - component: {fileID: 2006738878}
   - component: {fileID: 2006738877}
   - component: {fileID: 2006738876}
-  - component: {fileID: 2006738875}
   - component: {fileID: 2006738874}
   m_Layer: 5
   m_Name: Back to First Page
@@ -7323,17 +7310,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2006738875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2006738872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2006738876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7984,7 +7960,6 @@ GameObject:
   - component: {fileID: 2091033630}
   - component: {fileID: 2091033629}
   - component: {fileID: 2091033628}
-  - component: {fileID: 2091033627}
   - component: {fileID: 2091033626}
   m_Layer: 5
   m_Name: Next
@@ -8107,17 +8082,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2091033627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2091033624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2091033628
 MonoBehaviour:
   m_ObjectHideFlags: 0
