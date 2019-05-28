@@ -2,7 +2,6 @@
 
 public class GridMaker : MonoBehaviour
 {
-
     public GameObject tile;
     public GameObject border;
     public GameObject pavement;

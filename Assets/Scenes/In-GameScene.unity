@@ -2869,6 +2869,7 @@ GameObject:
   - component: {fileID: 734828537}
   - component: {fileID: 734828533}
   - component: {fileID: 734828538}
+  - component: {fileID: 734828539}
   m_Layer: 5
   m_Name: Mango Tree
   m_TagString: Untagged
@@ -2990,9 +2991,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1294c7a3807ded742bbc7bee95eece75, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4695ce5cd7c9a54448ea180a34b27c40, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3030,6 +3031,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCooldown: 0
   cooldownTimer: 0
+--- !u!114 &734828539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734828531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0028a34793d341c48b44a0f867d6768d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &791496365
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,6 +3606,7 @@ GameObject:
   - component: {fileID: 945455696}
   - component: {fileID: 945455695}
   - component: {fileID: 945455700}
+  - component: {fileID: 945455701}
   m_Layer: 5
   m_Name: Orange Tree
   m_TagString: Untagged
@@ -3727,9 +3740,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4d7584a6897f49643aa4e55ba3cbf508, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10e6ac2228d19e34caa4242e5a87cb53, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3755,6 +3768,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCooldown: 0
   cooldownTimer: 0
+--- !u!114 &945455701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 945455693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0028a34793d341c48b44a0f867d6768d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1004981141
 GameObject:
   m_ObjectHideFlags: 0
@@ -4557,6 +4581,7 @@ GameObject:
   - component: {fileID: 1115680733}
   - component: {fileID: 1115680732}
   - component: {fileID: 1115680737}
+  - component: {fileID: 1115680738}
   m_Layer: 5
   m_Name: Grape Vine
   m_TagString: Untagged
@@ -4690,9 +4715,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 03a92f33ea7eb844eb6774688e88a648, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7ef4c0ad63f6d4e43a25a5b4bed234f2, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4718,6 +4743,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCooldown: 0
   cooldownTimer: 0
+--- !u!114 &1115680738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115680730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0028a34793d341c48b44a0f867d6768d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1208292811
 GameObject:
   m_ObjectHideFlags: 0
@@ -6241,6 +6277,7 @@ GameObject:
   - component: {fileID: 1645546574}
   - component: {fileID: 1645546573}
   - component: {fileID: 1645546578}
+  - component: {fileID: 1645546579}
   m_Layer: 5
   m_Name: Maple Tree
   m_TagString: Untagged
@@ -6376,7 +6413,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: e2fb9e7749c59d04887f2dc47c730054, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -6402,6 +6439,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCooldown: 0
   cooldownTimer: 0
+--- !u!114 &1645546579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1645546571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0028a34793d341c48b44a0f867d6768d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1655833857
 GameObject:
   m_ObjectHideFlags: 0
@@ -6608,6 +6656,7 @@ GameObject:
   - component: {fileID: 1705854506}
   - component: {fileID: 1705854505}
   - component: {fileID: 1705854510}
+  - component: {fileID: 1705854511}
   m_Layer: 5
   m_Name: Oak Tree
   m_TagString: Untagged
@@ -6743,7 +6792,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 48abd30d193492d45a957e9e121da31e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -6769,6 +6818,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCooldown: 0
   cooldownTimer: 0
+--- !u!114 &1705854511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1705854503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0028a34793d341c48b44a0f867d6768d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1724748244
 GameObject:
   m_ObjectHideFlags: 0
@@ -7855,6 +7915,7 @@ GameObject:
   - component: {fileID: 2009753841}
   - component: {fileID: 2009753840}
   - component: {fileID: 2009753842}
+  - component: {fileID: 2009753843}
   m_Layer: 5
   m_Name: Apple Tree
   m_TagString: Untagged
@@ -7954,9 +8015,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 97dfc7bba5f30ca4f913df71617ea876, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b49e81397333cb241a0af84d43cffd81, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -8016,6 +8077,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCooldown: 0
   cooldownTimer: 0
+--- !u!114 &2009753843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2009753835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0028a34793d341c48b44a0f867d6768d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2043834033
 GameObject:
   m_ObjectHideFlags: 0
