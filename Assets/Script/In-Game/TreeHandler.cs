@@ -238,7 +238,7 @@ public class TreeHandler : MonoBehaviour
                     {
                         hitInfo.transform.gameObject.GetComponent<TreeHandler>().health += healAmount;
                         healCount-=1;
-                        Debug.Log("tree healed");
+                        //Debug.Log("tree healed");
                     }
                     if (healCount <= 0) Destroy(gameObject);
                 }
@@ -261,7 +261,7 @@ public class TreeHandler : MonoBehaviour
                         var affectedTree = hitInfo.transform.gameObject.GetComponent<TreeHandler>();
                         affectedTree.isEffectedByMaple = true;
                         affectedTree.harvestTime *= ((100 - mapleMod) / 100);
-                        Debug.Log("maple effect active");
+                        //Debug.Log("maple effect active");
                     }
                 }
             }

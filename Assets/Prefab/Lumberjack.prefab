@@ -217,7 +217,7 @@ MonoBehaviour:
   Grid: {fileID: 1745433840055118, guid: 8dfaa6383e9b8854abc9edb6d1f2ae36, type: 2}
   attackClip: {fileID: 8300000, guid: 185c1ad0a2c4b1a40a2f5316fa54558f, type: 3}
   dir: {x: 0, y: 0}
-  speed: 20
+  speed: 30
   stamina: 0
   damage: 0
 --- !u!212 &212150635269696312
