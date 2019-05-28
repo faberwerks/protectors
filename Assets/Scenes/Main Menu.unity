@@ -186,7 +186,6 @@ GameObject:
   - component: {fileID: 57497058}
   - component: {fileID: 57497057}
   - component: {fileID: 57497056}
-  - component: {fileID: 57497055}
   - component: {fileID: 57497059}
   m_Layer: 0
   m_Name: Credits
@@ -215,18 +214,6 @@ RectTransform:
   m_AnchoredPosition: {x: 187, y: -159}
   m_SizeDelta: {x: 320, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &57497055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 57497053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 604344531}
 --- !u!114 &57497056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,16 +253,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 57497055}
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 604344528}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 57497059}
         m_MethodName: Play
@@ -739,7 +726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &378640499
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1198,7 +1185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 604344531}
 --- !u!114 &557504805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2757,7 +2743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 604344531}
 --- !u!114 &1213367595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2910,7 +2895,6 @@ GameObject:
   - component: {fileID: 1213715089}
   - component: {fileID: 1213715088}
   - component: {fileID: 1213715087}
-  - component: {fileID: 1213715086}
   - component: {fileID: 1213715090}
   m_Layer: 0
   m_Name: Highscore
@@ -2939,18 +2923,6 @@ RectTransform:
   m_AnchoredPosition: {x: 187, y: -44}
   m_SizeDelta: {x: 320, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1213715086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1213715084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 2082062939}
 --- !u!114 &1213715087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2990,16 +2962,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1213715086}
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 2082062936}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 57497059}
         m_MethodName: Play
@@ -3558,7 +3530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1358404650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5573,7 +5545,6 @@ GameObject:
   - component: {fileID: 1787750748}
   - component: {fileID: 1787750747}
   - component: {fileID: 1787750746}
-  - component: {fileID: 1787750745}
   - component: {fileID: 1787750749}
   m_Layer: 0
   m_Name: How To Play
@@ -5602,18 +5573,6 @@ RectTransform:
   m_AnchoredPosition: {x: -198, y: -159}
   m_SizeDelta: {x: 320, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1787750745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1787750743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 1429454935}
 --- !u!114 &1787750746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5653,16 +5612,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1787750745}
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 1429454932}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 57497059}
         m_MethodName: Play
@@ -6303,7 +6262,6 @@ GameObject:
   - component: {fileID: 1873637170}
   - component: {fileID: 1873637169}
   - component: {fileID: 1873637168}
-  - component: {fileID: 1873637167}
   - component: {fileID: 1873637165}
   m_Layer: 5
   m_Name: Back
@@ -6427,18 +6385,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1873637167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1873637163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 1429454935}
 --- !u!114 &1873637168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6478,9 +6424,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1873637167}
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 1429454932}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7023,7 +6969,6 @@ GameObject:
   - component: {fileID: 1995343708}
   - component: {fileID: 1995343707}
   - component: {fileID: 1995343706}
-  - component: {fileID: 1995343705}
   - component: {fileID: 1995343703}
   m_Layer: 5
   m_Name: Back
@@ -7146,18 +7091,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1995343705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1995343701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 604344531}
 --- !u!114 &1995343706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7197,9 +7130,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1995343705}
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 604344528}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7274,7 +7207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2006738873
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7401,7 +7334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 604344531}
 --- !u!114 &2006738876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7713,7 +7645,6 @@ GameObject:
   - component: {fileID: 2076736219}
   - component: {fileID: 2076736218}
   - component: {fileID: 2076736217}
-  - component: {fileID: 2076736216}
   - component: {fileID: 2063640465}
   m_Layer: 5
   m_Name: Back
@@ -7837,18 +7768,6 @@ RectTransform:
   m_AnchoredPosition: {x: 136, y: -119}
   m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2076736216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2063640464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 2082062939}
 --- !u!114 &2076736217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7888,9 +7807,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2076736216}
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 2082062936}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8052,8 +7971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ae9781cb335464bb35546f37d5f837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreUI: {fileID: 1907075740}
-  timeUI: {fileID: 1058357170}
+  highscoreText: {fileID: 1907075740}
+  timeText: {fileID: 1058357170}
 --- !u!1 &2091033624
 GameObject:
   m_ObjectHideFlags: 0
@@ -8199,7 +8118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823f7b2b4f00ece4c84e44241fa81d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreCanvas: {fileID: 604344531}
 --- !u!114 &2091033628
 MonoBehaviour:
   m_ObjectHideFlags: 0
