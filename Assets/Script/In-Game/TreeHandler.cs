@@ -179,6 +179,7 @@ public class TreeHandler : MonoBehaviour
     {
         if (treeTypeNumber == 4)
         {
+            Debug.Log("start invoking healing");
             Invoke("GrapePower", 2f);
         }
         else if (treeTypeNumber == 5)
@@ -230,13 +231,14 @@ public class TreeHandler : MonoBehaviour
         {
             for (float y = -1f; y <= 1; y++)
             {
-                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 2f, LayerMask.GetMask("Tree"));
+                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 60f, LayerMask.GetMask("Tree"));
                 if (hitInfo)
                 {
                     if ((x != 0 || y != 0) && hitInfo.transform.gameObject.GetComponent<TreeHandler>().health < hitInfo.transform.gameObject.GetComponent<TreeHandler>().maxHealth)
                     {
                         hitInfo.transform.gameObject.GetComponent<TreeHandler>().health += healAmount;
                         healCount-=1;
+                        Debug.Log("tree healed");
                     }
                     if (healCount <= 0) Destroy(gameObject);
                 }
@@ -251,7 +253,7 @@ public class TreeHandler : MonoBehaviour
         {
             for (float y = -1f; y <= 1; y++)
             {
-                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 2f, LayerMask.GetMask("Tree"));
+                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 60f, LayerMask.GetMask("Tree"));
                 if (hitInfo)
                 {
                     if ((x != 0 || y != 0) && !hitInfo.transform.gameObject.GetComponent<TreeHandler>().isEffectedByMaple)
@@ -259,6 +261,7 @@ public class TreeHandler : MonoBehaviour
                         var affectedTree = hitInfo.transform.gameObject.GetComponent<TreeHandler>();
                         affectedTree.isEffectedByMaple = true;
                         affectedTree.harvestTime *= ((100 - mapleMod) / 100);
+                        Debug.Log("maple effect active");
                     }
                 }
             }
@@ -271,7 +274,7 @@ public class TreeHandler : MonoBehaviour
         {
             for (float y = -1f; y <= 1; y++)
             {
-                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 2f, LayerMask.GetMask("Tree"));
+                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(x, y), 60f, LayerMask.GetMask("Tree"));
                 if (hitInfo)
                 {
                     if ((x != 0 || y != 0) && hitInfo.transform.gameObject.GetComponent<TreeHandler>().isEffectedByMaple)
