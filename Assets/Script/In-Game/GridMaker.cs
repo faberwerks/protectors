@@ -9,7 +9,7 @@ public class GridMaker : MonoBehaviour
 
     [SerializeField] private int xLength = 17;
     [SerializeField] private int yLength = 12;
-    [SerializeField] public int size = 6;
+    public int size = 6;
 
     // Use this for initialization
     void Start()
@@ -22,13 +22,13 @@ public class GridMaker : MonoBehaviour
         int yCurr, xCurr;
         int xPos = (int)transform.position.x;
         int yPos = (int)transform.position.y;
-
+        Vector2 tilePos = Vector2.zero;
 
         for (xPos = (int)transform.position.x, xCurr = 0; xCurr < xLength; xPos += size, xCurr += 1)
         {
             for (yPos = (int)transform.position.y, yCurr = 0; yCurr < yLength; yPos -= size, yCurr += 1)
             {
-                var tilePos = new Vector2(xPos, yPos);
+                tilePos.Set(xPos, yPos);
                 if (xCurr == 0 || yCurr == 0 || xCurr == xLength - 1 || yCurr == yLength - 1)
                 {
                     Instantiate(border, tilePos, Quaternion.identity, this.gameObject.transform);

@@ -86,7 +86,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (numberOfFruitTree > 0) startCountdown = false;
-        Gameplay();
+
+        if (gameStart)
+        {
+            Gameplay();
+        }
+
         if (Input.GetKeyDown("escape") || pauseChecker)
         {
             TogglePause();
@@ -96,20 +101,21 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (gameStart) CheckLose();
+        if (gameStart && numberOfFruitTree <= 0) CheckLose();
     }
 
     private void Gameplay()
     {
-        if (gameStart)
-        {
-            if (startCountdown) finalCountdown -= Time.deltaTime;
-            gameTimer += Time.deltaTime;
-            spawnTimer -= Time.deltaTime;
-            Spawn();
-            TextUpdate();
+        if (startCountdown) finalCountdown -= Time.deltaTime;
+        gameTimer += Time.deltaTime;
+        spawnTimer -= Time.deltaTime;
 
+        if (spawnTimer <= 0)
+        {
+            Spawn();
         }
+
+        TextUpdate();
     }
 
     #region Text Update
@@ -153,7 +159,8 @@ public class GameManager : MonoBehaviour
 
     private void SpawnLumberjack(int startLoc)
     {
-        Vector2 dir = new Vector2(0, 0);
+        Vector2 dir;
+
         switch (startLoc)
         {
             case 1:                     //From top
@@ -168,6 +175,9 @@ public class GameManager : MonoBehaviour
             case 4:                     //From left
                 dir = Vector2.right;
                 break;
+            default:
+                dir = Vector2.zero;
+                break;
         }
         GameObject newLumberJack = (GameObject)Instantiate(lumber);                         //Instantiating a new Lumberjack
         newLumberJack.GetComponent<LumberjackController>().InitialiseDir(dir, startLoc);    //Accessing lumberjack's function to set its position
@@ -176,12 +186,9 @@ public class GameManager : MonoBehaviour
     //Spawns a lumberjack at a set position
     private void Spawn()
     {
-        if (spawnTimer <= 0)
-        {
-            checker = Random.Range(1, 5);   //Determines which position the lumberjack is spawned in
-            SpawnLumberjack(checker);       //Calls the Spawning Function
-            spawnTimer = spawnTime;
-        }
+        checker = Random.Range(1, 5);   //Determines which position the lumberjack is spawned in
+        SpawnLumberjack(checker);       //Calls the Spawning Function
+        spawnTimer = spawnTime;
     }
 
     private void TogglePause()
@@ -200,20 +207,17 @@ public class GameManager : MonoBehaviour
 
     private void CheckLose()
     {
-        if (numberOfFruitTree <= 0)
+        if ((numberofSuppTree <= 0 || seed < lowestSeedCost || finalCountdown <= 0) && Time.timeScale == 0f)
         {
-            if ((numberofSuppTree <= 0 || seed < lowestSeedCost || finalCountdown <= 0) && Time.timeScale == 0f)
-            {
 
-            }
-            else if (numberofSuppTree <= 0 || seed < lowestSeedCost || finalCountdown <= 0)
-            {
-                EndGame();
-            }
-            else if (hasPlantedFruit)
-            {
-                startCountdown = true;
-            }
+        }
+        else if (numberofSuppTree <= 0 || seed < lowestSeedCost || finalCountdown <= 0)
+        {
+            EndGame();
+        }
+        else if (hasPlantedFruit)
+        {
+            startCountdown = true;
         }
     }
 
