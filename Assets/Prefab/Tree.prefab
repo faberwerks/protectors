@@ -175,24 +175,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  appleTree: {fileID: 21300000, guid: 2209a96ca6e468345a2054914ede0f12, type: 3}
-  appleTreeHarvest: {fileID: 21300002, guid: 2209a96ca6e468345a2054914ede0f12, type: 3}
-  mangoTree: {fileID: 21300000, guid: 0cf1b675d9d0a054ab1d0d666e09ab98, type: 3}
-  mangoTreeHarvest: {fileID: 21300002, guid: 5aac3e876a6c900428acb262516c4b9f, type: 3}
-  orangeTree: {fileID: 21300000, guid: 8234a53a3734a994eabefbe5e05c9459, type: 3}
-  orangeTreeHarvest: {fileID: 21300002, guid: 8234a53a3734a994eabefbe5e05c9459, type: 3}
-  oakTree: {fileID: 21300000, guid: 9a52fa4af3ffa98419f0689b7da46ce9, type: 3}
-  mapleTree: {fileID: 21300000, guid: 11e9b1c30687aba409819ed62c63e713, type: 3}
-  grapeTree: {fileID: 21300000, guid: 2d713bfc561781041a536645e999718f, type: 3}
+  appleTree: {fileID: 21300000, guid: c5d9f9567f51d974795e393696c5d95f, type: 3}
+  appleTreeHarvest: {fileID: 21300000, guid: 97dfc7bba5f30ca4f913df71617ea876, type: 3}
+  mangoTree: {fileID: 21300000, guid: 7f406d0eded4b8e419bee539dfad4ff3, type: 3}
+  mangoTreeHarvest: {fileID: 21300000, guid: 1294c7a3807ded742bbc7bee95eece75, type: 3}
+  orangeTree: {fileID: 21300000, guid: 23fe37b054949904786ba990d348e02c, type: 3}
+  orangeTreeHarvest: {fileID: 21300000, guid: 4d7584a6897f49643aa4e55ba3cbf508, type: 3}
+  oakTree: {fileID: 21300000, guid: 48abd30d193492d45a957e9e121da31e, type: 3}
+  mapleTree: {fileID: 21300000, guid: e2fb9e7749c59d04887f2dc47c730054, type: 3}
+  grapeTree: {fileID: 21300000, guid: 03a92f33ea7eb844eb6774688e88a648, type: 3}
   harvestedClip: {fileID: 8300000, guid: be6195d30f7f14648a36683c6562b22a, type: 3}
   isEffectedByMaple: 0
-  treeTypeNumber: 2
+  treeTypeNumber: 3
   maxHealth: 0
-  health: 100
-  seedValue: 5
-  scoreValue: 50
+  health: 400
+  seedValue: 0
+  scoreValue: 0
   oriHarvestTime: 0
-  harvestTime: 3
+  harvestTime: 0
   harvestTimer: 0
   mapleMod: 0
   mapleTimer: 0
