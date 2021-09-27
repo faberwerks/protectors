@@ -68,7 +68,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-Valanthion only requires Unity 2018.2.16f1 to run. Any Unity 2018.2.16f1 and possibly Unity 2018.2 version should work without any problems. You can download them [here](https://unity3d.com/get-unity/download/archive).
+Protectors only requires Unity 2018.2.16f1 to run. Any Unity 2018.2.16f1 and possibly Unity 2018.2 version should work without any problems. You can download them [here](https://unity3d.com/get-unity/download/archive).
 
 ### Installation
 
